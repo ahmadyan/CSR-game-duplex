@@ -1,0 +1,2291 @@
+@STRING{IEEE_J_EC         = "{IEEE} Trans. En. Conv."}
+@STRING{IEEE_J_PWRE       = "{IEEE} Trans. Power Electron."}
+@STRING{IEEE_J_PWRS       = "{IEEE} Trans. Power Syst."}
+@STRING{IEEE_J_MAG        = "{IEEE} Trans. Magn."}
+@STRING{J_NUM_ENG         = "Int. J. Numer. Meth. Engng."}
+@STRING{ENG_ANAL          = "Eng. Anal."}
+@STRING{IEEE_J_EDU        = "{IEEE} Trans. Educ."}
+@STRING{IEEE_J_MTT        = "{IEEE} Trans. Microwave Theory Tech."}
+@STRING{IEEE_J_IA         = "{IEEE} Trans. Ind. Applicat."}
+@STRING{IEEE_J_AntProp    = "{IEEE} Trans. Ant. and Prop."}
+
+
+%% IEEEexample.bib
+%% V1.10
+%% 2002/09/27
+%% Copyright (c) 2002 by Michael Shell
+%% mshell(at)ece.gatech.edu
+%% See support website below for current contact information.
+%%
+%% NOTE: This text file uses MS Windows line feed conventions. When (human)
+%% reading this file on other platforms, you may have to use a text
+%% editor that can handle lines terminated by the MS Windows line feed
+%% characters (0x0D 0x0A).
+%%
+%% This is an example BibTeX database for the official IEEEtran.bst
+%% BibTeX style file.
+%%
+%% Some entries call strings that are defined in the IEEEabrv.bib file.
+%% Therefore, IEEEabrv.bib should be loaded prior to this file.
+%% Usage:
+%%
+%% \bibliographystyle{./IEEEtran} % use IEEEtran.bst style
+%% \bibliography{./IEEEabrv,./IEEEexample}
+%%
+%%
+%% Support sites:
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
+%% and/or
+%% http://www.ieee.org
+%%**********************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% This code is distributed under the Perl Artistic License
+%% ( http://language.perl.com/misc/Artistic.html )
+%% and may be freely used, distributed and modified - subject to the
+%% constraints therein.
+%% Retain all contribution notices, credits and disclaimers.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%**********************************************************************
+
+
+% Note that, because the example references were taken from actual IEEE
+% publications, these examples do not always contain the full amount
+% of information that may be desirable (for use with other BibTeX styles).
+% In particular, full names (not abbreviated with initials) should be
+% entered whenever possible as some (non-IEEE) bibliography styles use
+% full names. IEEEtran.bst will automatically abbreviate when it
+% encounters full names.
+
+
+
+% references for the IEEEtran.bst documentation
+% the distribution site for IEEEtran.bst
+@electronic{IEEEexample:shellCTANpage,
+  author        = "Michael Shell",
+  title         = "{IEEE}tran Homepage on {CTAN}",
+  url           = "http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/",
+  year          = "2002"
+};
+
+% the IEEE website
+% sort key is needed for sorting styles
+@electronic{IEEEexample:IEEEwebsite,
+  title         = "The {IEEE} Website",
+  url           = "http://www.ieee.org/",
+  year          = "2002",
+  key           = "IEEE"
+};
+
+% The BibTeX user's guide.
+% The filename could have been put in the URL instead. But, there might
+% be other interesting things for the user in the same directory - and
+% the filename might change before the directory that contains it.
+@electronic{IEEEexample:bibtexuser,
+  author        = "Oren Patashnik",
+  title         = "{\BibTeX}ing",
+  howpublished  = "{btxdoc.pdf}",
+  url           = "http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/",
+  month         = feb,
+  year          = "1988"
+};
+
+% The BibTeX style designer's guide.
+@electronic{IEEEexample:bibtexdesign,
+  author        = "Oren Patashnik",
+  title         = "Designing {\BibTeX\ } Styles",
+  howpublished  = "{btxhak.pdf}",
+  url           = "http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/",
+  month         = feb,
+  year          = "1988"
+};
+
+% The BibTeX Tips and FAQ guide.
+@electronic{IEEEexample:bibtexFAQ,
+  author        = "David Hoadley and Michael Shell",
+  title         = "{\BibTeX}\ Tips and {FAQ}",
+  howpublished  = "{btxFAQ.txt}",
+  url           = "http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/",
+  month         = oct,
+  year          = "2002"
+};
+
+% TeX User Group Bibliography Archive
+@electronic{IEEEexample:beebe_archive,
+  author        = "Nelson H. F. Beebe",
+  title         = "{\TeX\ }User Group Bibliography Archive",
+  url           = "http://www.math.utah.edu:8080/pub/tex/bib/index-table.html",
+  month         = may,
+  year          = "2002"
+};
+
+% The url.sty package.
+@electronic{IEEEexample:urlsty,
+  author        = "Donald Arseneau",
+  title         = "The url.sty package",
+  url           = "http://www.ctan.org/tex-archive/macros/latex/contrib/other/misc/",
+  month         = mar,
+  year          = "1999",
+};
+
+
+% The hyperref.sty package.
+@electronic{IEEEexample:hyperrefsty,
+  author        = "Sebastian Rahtz and Heiko Oberdiek",
+  title         = "The hyperref.sty package",
+  url           = "http://www.ctan.org/tex-archive/macros/latex/contrib/supported/hyperref/",
+  month         = jul,
+  year          = "2002",
+};
+
+% The Babel package.
+@electronic{IEEEexample:babel,
+  author        = "Johannes Braams",
+  title         = "The {Babel} package",
+  url           = "http://www.ctan.org/tex-archive/macros/latex/required/babel/",
+  month         = feb,
+  year          = "2001",
+};
+
+
+
+
+
+% The three most common and typical types of references used in
+% IEEE publications:
+
+% an article in a journal
+% Note the use of the IEEE_J_EDL string, defined in the IEEEabrv.bib file,
+% for the journal name. IEEEtran.bst defines the BibTeX standard three
+% letter month codes per IEEE style.
+% From the June 2002 issue of "IEEE Transactions on Electron Devices",
+% page 996, reference #16.
+@article{IEEEexample:article_typical,
+  author        = "S. Zhang and C. Zhu and J. K. O. Sin and P. K. T. Mok",
+  title         = "A Novel Ultrathin Elevated Channel Low-temperature
+                   Poly-{Si} {TFT}",
+  journal       = IEEE_J_EDL,
+  volume        = "20",
+  month         = nov,
+  year          = "1999",
+  pages         = "569-571"
+};
+
+% journal article using et al.
+% The (five) authors are actually: F. Delorme, S. Slempkes, G. Alibert,
+% B. Rose, J. Brandon
+% The month (July) was not given here.
+% From the September 1998 issue of "IEEE Journal on Selected Areas in
+% Communications", page 1257, reference #28.
+@article{IEEEexample:articleetal,
+  author        = "F. Delorme and others",
+  title         = "Butt-jointed {DBR} Laser With 15 {nm} Tunability Grown
+                   in Three {MOVPE} Steps",
+  journal       = "Electron. Lett.",
+  volume        = "31",
+  number        = "15",
+  year          = "1995",
+  pages         = "1244-1245"
+};
+
+
+% a paper in a conference proceedings
+% "conference" can be used as an alias for "inproceedings"
+% From the June 2002 issue of "Journal of Microelectromechanical Systems",
+% page 205, reference #16.
+@inproceedings{IEEEexample:conf_typical,
+  author        = "R. K. Gupta and S. D. Senturia",
+  title         = "Pull-in Time Dynamics as a Measure of Absolute Pressure",
+  booktitle     = "Proc. {IEEE} International Workshop on
+                   Microelectromechanical Systems ({MEMS}'97)",
+  address       = "Nagoya, Japan",
+  month         = jan,
+  year          = "1997",
+  pages         = "290-294"
+};
+
+
+% a book
+% From the May 2002 issue of "IEEE Transactions on Magnetics",
+% page 1466, reference #4.
+@book{IEEEexample:book_typical,
+  author        = "B. D. Cullity",
+  title         = "Introduction to Magnetic Materials",
+  publisher     = "Addison-Wesley",
+  address       = "Reading, MA",
+  year          = "1972"
+};
+
+
+
+
+% Other examples
+
+% journal article with large page numbers, IEEE will divide numbers 5 digits
+% or longer into groups of three with small spaces between them. Page ranges
+% can be separated via either "-" or "--", IEEEtran.bst will automatically
+% convert the separator dash(es) to "--".
+% Authors and/or IEEE do not always provide/use the journal number, but it
+% was used in this case. IEEEtran.bst can be configured to ignore journal
+% numbers if desired.
+% From the August 2000 issue of "IEEE Photonics Technology Letters",
+% page 1039, reference #11.
+@article{IEEEexample:articlelargepages,
+  author        = "A. Castaldini and A. Cavallini and B. Fraboni
+                   and P. Fernandez and J. Piqueras",
+  title         = "Midgap Traps Related to Compensation Processes in
+                   {CdTe} Alloys",
+  journal       = "Phys. Rev. B.",
+  volume        = "56",
+  number        = "23",
+  year          = "1997",
+  pages         = "14897-14900"
+};
+
+
+% journal article with dual months
+% use the BibTeX "#" concatenation operator
+% From the March 2002 issue of "IEEE Transactions on Mechatronics",
+% page 21, reference #8.
+@article{IEEEexample:articledualmonths,
+  author        = "Y. Okada and K. Dejima and T. Ohishi",
+  title         = "Analysis and Comparison of {PM} Synchronous Motor and
+                   Induction Motor Type Magnetic Bearings",
+  journal       = IEEE_J_IA,
+  volume        = "31",
+  month         = sep # "/" # oct,
+  year          = "1995",
+  pages         = "1  047-1053"
+};
+
+
+% journal article to be published as a misc entry type
+% date information like month and year is optional
+% However, the article form like that below may be a better approach.
+% From the May 2002 issue of "IEEE Journal of Selected Areas in
+% Communication", page 725, reference #3.
+@misc{IEEEexample:TBPmisc,
+  author        = "M. Coates and A. Hero and R. Nowak and B. Yu",
+  title         = "Internet Tomography",
+  howpublished  = IEEE_M_SP,
+  month         = may,
+  year          = "2002",
+  note          = "to be published"
+};
+
+
+% journal article to be published as an article entry type
+% year is required, so if absent, use the year field to hold
+% the "submitted for publication" in order to avoid a warning for
+% the missing year field.
+% From the June 2002 issue of "IEEE Transactions on Information Theory",
+% page 1461, reference #21.
+@article{IEEEexample:TBParticle,
+  author        = "N. Kahale and R. Urbanke",
+  title         = "On the Minimum Distance of Parallel and Serially
+                   Concatenated Codes",
+  journal       = IEEE_J_IT,
+  year          = "submitted for publication"
+};
+
+
+
+
+% book with editor and no author
+% From the June 2002 issue of "IEEE Transactions on Information Theory",
+% page 1725, reference #1.
+@book{IEEEexample:bookwitheditor,
+  editor        = "J. C. Candy and G. C. Temes",
+  title         = "Oversampling Delta-Sigma Data Converters Theory,
+                   Design and Simulation",
+  publisher     = "{IEEE} Press.",
+  address       = "New York",
+  year          = "1992"
+};
+
+
+% book with edition, author and editor
+% Note that the standard BibTeX styles do not support book entries with both
+% author and editor fields, but IEEEtran.bst does.
+% The standard BibTeX way of specifying the edition is to use capitalized
+% ordinal words such as "First", "Second", etc. Most .bst files can convert
+% up to about "Fifth" into the format needed. IEEEtran.bst can convert up
+% to "Tenth" to the "Arabic ordinal" form IEEE uses (e.g., "10th"). For
+% editions over the tenth, it is best to use the "Arabic ordinal" form for
+% IEEE related work (e.g., "101st")
+% Note how "Jr." has to be entered.
+% From the May 2002 issue of "Journal of Lightwave Technology", page 856,
+% reference #17.
+@book{IEEEexample:book,
+  author        = "S. M. Metev and V. P. Veiko",
+  editor        = "Osgood, Jr., R. M.",
+  title         = "Laser Assisted Microtechnology",
+  edition       = "Second",
+  publisher     = "Springer-Verlag",
+  address       = "Berlin, Germany",
+  year          = "1998"
+};
+
+
+% book with series and volume
+% From the January 2000 issue of "IEEE Transactions on Communications",
+% page 11, reference #31.
+@book{IEEEexample:bookwithseriesvolume,
+  editor        = "J. Breckling",
+  title         = "The Analysis of Directional Time Series: Applications to
+                   Wind Speed and Direction",
+  series        = "Lecture Notes in Statistics",
+  publisher     = "Springer",
+  address       = "Berlin, Germany",
+  year          = "1989",
+  volume        = "61"
+};
+
+
+% inbook with chapter number. The pages field could also have been given.
+% The chapter number could be changed to something else such as a section
+% number via the type field: type = "sec.".
+% From the May 2002 issue of "IEEE Transactions on Circuits and Systems---I:
+% Fundamental Applications and Theory", page 638, reference #22.
+@inbook{IEEEexample:inbook,
+  author        = "H. E. Rose",
+  title         = "A Course in Number Theory",
+  publisher     = "Oxford Univ. Press",
+  address       = "New York, NY",
+  year          = "1988",
+  chapter       = "3"
+};
+
+
+% inbook with pages and note. The language field is not set to Russian
+% because the title is presented here in its translated, English, form.
+% From the May 2002 issue of "IEEE Transactions on Magnetics", page 1533,
+% reference #5.
+@inbook{IEEEexample:inbookpagesnote,
+  author        = "B. K. Bul",
+  title         = "Theory Principles and Design of Magnetic Circuits",
+  publisher     = "Energia Press",
+  address       = "Moscow",
+  year          = "1964",
+  pages         = "464",
+  note          = "(in Russian)"
+};
+
+
+
+
+
+% incollection with author and editor
+% From the May 2002 issue of "Journal of Lightwave Technology",
+% page 807, reference #7.
+@incollection{IEEEexample:incollection,
+  author        = "W. V. Sorin",
+  editor        = "D. Derickson",
+  title         = "Optical Reflectometry for Component Characterization",
+  booktitle     = "Fiber Optic Test and Measurement",
+  publisher     = "Prentice-Hall",
+  address       = "Englewood Cliffs, NJ",
+  year          = "1998"
+};
+
+
+% incollection with series
+% From the April 2000 issue of "IEEE Transactions on Communication",
+% page 609, reference #3.
+@incollection{IEEEexample:incollectionwithseries,
+  author        = "J. B. Anderson and K. Tepe",
+  title         = "Properties of the Tailbiting {BCJR} Decoder",
+  booktitle     = "Codes, Systems and Graphical Models",
+  series        = "{IMA} Volumes in Mathematics and Its Applications",
+  publisher     = "Springer-Verlag",
+  address       = "New York",
+  year          = "2000"
+
+};
+
+
+% incollection with author, editor, chapter and pages
+% From the January 2000 issue of "IEEE Transactions on Communications",
+% page 16, reference #9.
+@incollection{IEEEexample:incollection_chpp,
+  author        = "P. Hedelin and P. Knagenhjelm and M. Skoglund",
+  editor        = "W. B. Kleijn and K. K. Paliwal",
+  title         = "Theory for Transmission of Vector Quantization Data",
+  booktitle     = "Speech Coding and Synthesis",
+  publisher     = "Elsevier Science",
+  address       = "Amsterdam, The Netherlands",
+  year          = "1995",
+  chapter       = "10",
+  pages         = "347-396"
+};
+
+
+% incollection with a large number of authors, some authors/journals will
+% use et al. for so many names. IEEEtran.bst can be configured to do this
+% if desired, or "R. M. A. Dawson and others" can be used instead.
+% Note that IEEE may not include the publisher for incollection entries -
+% IEEEtran.bst will not issue a warning if the publisher is missing for
+% incollections - but other .bst files often will.
+% From the June 2002 issue of "IEEE Transactions on Electron Devices",
+% page 996, reference #12.
+@incollection{IEEEexample:incollectionmanyauthors,
+  author        = "R. M. A. Dawson and Z. Shen and D. A. Furst and
+                   S. Connor and J. Hsu and M. G. Kane and R. G. Stewart and
+                   A. Ipri and C. N. King and P. J. Green and R. T. Flegal
+                   and S. Pearson and W. A. Barrow and E. Dickey and K. Ping
+                   and C. W. Tang and S. Van. Slyke and
+                   F. Chen and J. Shi and J. C. Sturm and M. H. Lu",
+  title         = "Design of an Improved Pixel for a Polysilicon
+                   Active-Matrix Organic {LED} Display",
+  booktitle     = "{SID} Tech. Dig.",
+  volume        = "29",
+  year          = "1998",
+  pages         = "11-14"
+};
+
+
+
+
+
+% A Motorola data book as a manual
+% It is somewhat unusual to include the data book part number.
+% in the title. It might be more correct to put this information
+% in the howpublished field instead.
+% From the December 2000 issue of "IEEE Transactions on Communications",
+% page 1986, reference #10.
+@manual{IEEEexample:motmanual,
+  title         = "{FLEXChip} Signal Processor ({MC68175/D})",
+  organization  = "Motorola",
+  year          = "1996"
+};
+
+% same reference, but using IEEEtran's howpublished extension
+@manual{IEEEexample:motmanualhowpub,
+  title         = "{FLEXChip} Signal Processor",
+  howpublished  = "{MC68175/D}",
+  organization  = "Motorola",
+  year          = "1996"
+};
+
+
+
+
+% conference paper with an address and days. Some journals capitalize the
+% letters in "Globecom", this one did not.
+% From the May 2002 issue of "IEEE Transactions on Communications",
+% page 697, reference #12.
+@inproceedings{IEEEexample:confwithadddays,
+  author        = "M. S. Yee and L. Hanzo",
+  title         = "Radial Basis Function Decision Feedback Equaliser
+                   Assisted Burst-by-burst Adaptive Modulation",
+  booktitle     = "Proc. {IEEE} Globecom '99",
+  address       = "Rio de Janeiro, Brazil",
+  month         = dec # " 5--9,",
+  year          = "1999",
+  pages         = "2183-2187"
+};
+
+
+% conference paper with volume number. A conference proceedings with a vol
+% number is a little uncommon, note that the vol number is placed
+% before the address in the formatted bibliography entry
+% From the April 2002 issue of "IEEE/ACM Transactions on Networking",
+% page 181, reference #26.
+@inproceedings{IEEEexample:confwithvolume,
+  author        = "M. Yajnik and S. B. Moon and J. Kurose and D. Towsley",
+  title         = "Measurement and Modeling of the Temporal Dependence in
+                   Packet Loss",
+  booktitle     = "Proc. {IEEE} {INFOCOM}'99",
+  volume        = "1",
+  address       = "New York, NY",
+  month         = mar,
+  year          = "1999",
+  pages         = "345-352"
+};
+
+
+% conference paper with a paper number, the type field can be used to
+% override the word "paper", e.g., type = "postdeadline paper". A type
+% can be given even without a paper  field.
+% Also, IEEEtran.bst can be configured to ignore paper numbers and types.
+% From the May 2002 issue of "Journal of Lightwave Technology",
+% page 807, reference #4.
+@inproceedings{IEEEexample:confwithpaper,
+  author        = "M. Wegmuller and J. P. von der Weid and P. Oberson
+                   and N. Gisin",
+  title         = "High Resolution Fiber Distributed Measurements With
+                   Coherent {OFDR}",
+  booktitle     = "Proc. {ECOC}'00",
+  year          = "2000",
+  paper         = "11.3.4",
+  pages         = "109"
+};
+
+
+% conference paper with a postdeadline type paper, the paper field is
+% optional.
+% From the August 2000 issue of "IEEE Photonics Technology Letters",
+% page 1087, reference #12.
+@inproceedings{IEEEexample:confwithpapertype,
+  author        = "B. Mikkelsen and G. Raybon and R.-J. Essiambre and
+                   K. Dreyer and Y. Su. and L. E. Nelson and J. E. Johnson
+                   and G. Shtengel and A. Bond and D. G. Moodie and
+                   A. D. Ellis",
+  title         = "160 {Gbit/s} Single-channel Transmission Over 300 km
+                   Nonzero-dispersion Fiber With Semiconductor Based
+                   Transmitter and Demultiplexer",
+  booktitle     = "Proc. {ECOC}'99",
+  year          = "1999",
+  paper         = "2-3",
+  type          = "postdeadline paper",
+  pages         = "28-29"
+};
+
+
+% presented at a conference
+% intype overrides the default "in" and causes the booktitle not to be
+% emphasized (rendered in italics).
+% From the February 2002 issue of "IEEE/ACM Transactions on Networking",
+% page 163, reference #6.
+@inproceedings{IEEEexample:presentedatconf,
+  author        = "S. G. Finn and M. M{\'e}dard and R. A. Barry",
+  title         = "A Novel Approach to Automatic Protection Switching
+                   Using Trees",
+  intype        = "presented at the",
+  booktitle     = "Proc. Int. Conf. Commun.",
+  year          = "1997"
+};
+
+
+
+
+
+% master's thesis, often the University name will be abbreviated and the
+% state or country will be included in the address. The type field can
+% used to override the default type "Master's thesis"
+% From the June 2002 issue of "IEEE Transactions on Microelectromechanical
+% Systems", page 186, reference #11.
+@mastersthesis{IEEEexample:masters,
+  author        = "Nin C. Loh",
+  title         = "High-Resolution Micromachined Interferometric
+                   Accelerometer",
+  school        = "Massachusetts Institute of Technology",
+  address       = "Cambridge",
+  year          = "1992"
+};
+
+
+% master's thesis with a type field
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 391, reference #12.
+@mastersthesis{IEEEexample:masterstype,
+  author        = "A. Karnik",
+  title         = "Performance of {TCP} Congestion Control with Rate
+                   Feedback: {TCP/ABR} and Rate Adaptive {TCP/IP}",
+  school        = "Indian Institute of Science",
+  type          = "M. Eng. thesis",
+  address       = "Bangalore, India",
+  month         = jan,
+  year          = "1999"
+};
+
+
+
+
+
+% Ph.D. dissertation with a URL field, the university is abbreviated
+% From the October 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 590, reference #11.
+@phdthesis{IEEEexample:phdurl,
+  author        = "Q. Li",
+  title         = "Delay Characterization and Performance Control of
+                   Wide-area Networks",
+  school        = "Univ. of Delaware",
+  address       = "Newark",
+  month         = may,
+  year          = "2000",
+  url           = "http://www.ece.udel.edu/~qli"
+};
+
+
+
+
+
+% technical report
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 490, reference #15.
+@techreport{IEEEexample:techrep,
+  author        = "R. Jain and K. K. Ramakrishnan and D. M. Chiu",
+  title         = "Congestion Avoidance in Computer Networks with a
+                   Connectionless Network Layer",
+  institution   = "Digital Equipment Corporation",
+  address       = "MA",
+  number        = "DEC-TR-506",
+  month         = aug,
+  year          = "1987"
+};
+
+
+% technical report with type
+% for those times when "Tech. Rep." needs to be modified
+% From the February 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 46, reference #8.
+@techreport{IEEEexample:techreptype,
+  author        = "J. Padhye and V. Firoiu and D. Towsley",
+  title         = "A Stochastic Model of {TCP} {R}eno Congestion Avoidance
+                   and Control",
+  institution   = "Univ. of Massachusetts",
+  address       = "Amherst, MA",
+  type          = "CMPSCI Tech. Rep.",
+  number        = "99-02",
+  year          = "1999"
+};
+
+
+% technical report with type
+% for those times when "Tech. Rep." needs to be modified
+% This reference did not have an address.
+% From the January 2000 issue of "IEEE Transactions on Communications",
+% page 117, reference #6.
+@techreport{IEEEexample:techreptypeii,
+  author        = "D. Middleton and A. D. Spaulding",
+  title         = "A Tutorial Review of Elements of Weak Signal Detection
+                   in Non-{G}aussian {EMI} Environments",
+  institution   = "National Telecommunications and Information
+                   Administration ({NTIA}), U.S. Dept. of Commerce",
+  type          = "NTIA Report",
+  number        = "86-194",
+  month         = may,
+  year          = "1986"
+};
+
+
+
+
+
+% an unpublished work
+% for unpublished types, the note field is required. IEEE usually
+% just uses the word "unpublished" for the note.
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 391, reference #16.
+@unpublished{IEEEexample:unpublished,
+  author        = "T. J. Ott and N. Aggarwal",
+  title         = "{TCP} over {ATM}: {ABR} or {UBR}",
+  note          = "Unpublished"
+};
+
+
+
+
+
+% electronic with a howpublished information field
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 391, reference #7.
+@electronic{IEEEexample:electronhowinfo,
+  author        = "V. Jacobson",
+  title         = "Modified {TCP} Congestion Avoidance Algorithm",
+  howpublished  = "end2end-interest mailing list",
+  url           = "ftp://ftp.isi.edu/end2end/end2end-interest-1990.mail",
+  month         = apr,
+  year          = "1990"
+};
+
+
+% electronic with a howpublished information field
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 418, reference #31.
+@electronic{IEEEexample:electronhowinfo2,
+  author        = "V. Valloppillil and K. W. Ross",
+  title         = "Cache Array Routing Protocol v1.1",
+  howpublished  = "Internet draft",
+  url           = "http://ds1.internic.net/internet-drafts/draft-vinod-carp-v1-03.txt",
+  year          = "1998"
+};
+
+
+% electronic with an organization and address
+% From the February 2002 issue of "IEEE/ACM Transactions on Networking",
+% page 114, reference #15.
+@electronic{IEEEexample:electronorgadd,
+  author        = "D. H. Lorenz and A. Orda",
+  title         = "Optimal Partition of {QoS} Requirements on Unicast
+                   Paths and Multicast Trees",
+  organization  = "Dept. Elect. Eng., Technion",
+  address       = "Haifa, Israel",
+  url           = "ftp://ftp.technion.ac.il/pub/supported/ee/Network/lor.mopq98.ps",
+  month         = jul,
+  year          = "1998"
+};
+
+
+
+
+
+% U.S. patent
+% Use the type field to override the patent type. e.g.,
+% type = "Patent Application"
+% The address is that of the assignee. Note that IEEE does not
+% display the assignee, the address, and only displays one date.
+% (if year is not present, the filed dates are used.) However, this
+% information should be entered as other BibTeX styles may use it.
+% alternatively, nationality could be entered as "U.S."
+% From the April 2000 issue of "IEEE Transactions on Communications",
+% page 542, reference #6.
+@patent{IEEEexample:uspat,
+  author        = "Ronald E. Sorace and Victor S. Reinhardt and
+                   Steven A. Vaughn",
+  assignee      = "Hughes Aircraft Company",
+  address       = "Los Angeles, CA",
+  title         = "High-Speed Digital-to-{RF} Converter",
+  nationality   = "United States",
+  number        = "5668842",
+  dayfiled      = "28",
+  monthfiled    = feb,
+  yearfiled     = "1995",
+  day           = "16",
+  month         = sep,
+  year          = "1997"
+};
+
+
+% Japanese Patent
+% From the April 2000 issue of "IEEE Transactions on Communications",
+% page 556, reference #6.
+@patent{IEEEexample:jppat,
+  author        = "U. Hideki",
+  title         = "Quadrature Modulation Circuit",
+  nationality   = "Japanese",
+  number        = "152932/92",
+  day           = "20",
+  month         = may,
+  year          = "1992"
+};
+
+
+% French Patent request, the language field must be entered in lower case
+% as this is the option name Babel uses. The nationality field needs to be
+% capitalized. Because this is a patent request, the date filed fields are
+% used while the date fields are left empty/missing. In other countries,
+% the words "Patent Application", etc. are used instead.
+% From the April 2000 issue of "IEEE Transactions on Communications",
+% page 556, reference #9.
+@patent{IEEEexample:frenchpatreq,
+  author        = "F. Kowalik and M. Isard",
+  title         = "Estimateur d'un D{\'e}faut de Fonctionnement
+                   d'un Modulateur en Quadrature et {\'E}tage de Modulation
+                   l'Utilisant",
+  language      = "french",
+  nationality   = "French",
+  type          = "Patent Request",
+  number        = "9500261",
+  dayfiled      = "11",
+  monthfiled    = jan,
+  yearfiled     = "1995"
+};
+
+
+
+
+
+% a periodical
+% From the April 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 160, reference #1.
+% sort key is needed for sorting styles
+@periodical{IEEEexample:periodical,
+  title         = IEEE_M_PCOM # ", Special Issue on Wireless {ATM}",
+  volume        = "3",
+  month         = aug,
+  year          = "1996",
+  key           = "IEEE"
+};
+
+
+
+
+
+% standard, IEEE does not use the address for standards, but it is good
+% to provide one for BibTeX styles that use it.
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 451, reference #2.
+@standard{IEEEexample:standard,
+  title         = "Wireless {LAN} Medium Access Control {(MAC)} and
+                   Physical Layer {(PHY)} Specification",
+  organization  = "IEEE",
+  address       = "Piscataway, NJ",
+  number        = "802.11",
+  year          = "1997"
+};
+
+
+% standard with type and revision, the type overrides the word standard
+% (or std.). Here a standard number is not available and a revision number
+% is used.
+% From the August 2000 issue of "IEEE Photonics Technology Letters",
+% page 1048, reference #13.
+@standard{IEEEexample:standardproposed,
+  title         = "Fiber Channel Physical Interface ({FC-PI})",
+  institution   = "NCITS",
+  address       = "Washington, DC",
+  type          = "Working Draft Proposed Standard",
+  revision      = "5.2",
+  year          = "1999"
+};
+
+
+% standard draft as a misc with author
+% From the May 2002 issue of "IEEE Journal of Selected Areas in
+% Communication", page 725, reference #16.
+@misc{IEEEexample:draftasmisc,
+  author        = "I. Widjaja and A. Elwalid",
+  title         = "{MATE}: {MPLS} Adaptive Traffic Engineering",
+  howpublished  = "IETF Draft",
+  year          = "1999"
+};
+
+
+
+
+
+% misc for a techreport like reference
+% techreport is not perfectly suitable because this entry lacks
+% an institution field
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 490, reference #22.
+@misc{IEEEexample:miscforum,
+  author        = "L. Roberts",
+  title         = "Enhanced Proportional Rate Control Algorithm {PRCA}",
+  howpublished  = "{ATM} Forum Contribution 94-0735R1",
+  month         = aug,
+  year          = "1994"
+};
+
+
+% misc for a white paper
+% From the August 2001 issue of "IEEE/ACM Transactions on Networking",
+% page 478, reference #4 - Note that the reference there (improperly?)
+% used the author field for "Cisco".
+@misc{IEEEexample:whitepaper,
+  title         = "Advanced {QoS} Services for the Intelligent Internet",
+  howpublished  = "White Paper",
+  organization  = "Cisco",
+  month         = may,
+  year          = "1997"
+};
+
+
+% misc for a data sheet
+% From the November 2000 issue of "IEEE Photonics Technology Letters",
+% page 1551, reference #6.
+@misc{IEEEexample:datasheet,
+  title         = "{PDCA12-70} data sheet",
+  organization  = "Opto Speed SA",
+  address       = "Mezzovico, Switzerland"
+};
+
+
+
+
+
+% Other unusual references
+
+% a private communication as a misc entry type
+% sometimes the designation "personal communication" is used instead
+% From the June 2002 issue of "IEEE Transactions on Information Theory",
+% page 1725, reference #16.
+@misc{IEEEexample:private,
+  author        = "S. Konyagin",
+  howpublished  = "private communication",
+  year          = "1998"
+};
+
+
+% an internet request for comments (RFC) as a misc entry type
+% It would also be nice to add a URL to these types of things.
+% RFCs can also be handled as electronic references.
+% From the April 2002 issue of "IEEE/ACM Transactions on Networking",
+% page 181, reference #14.
+@misc{IEEEexample:miscrfc,
+  author        = "K. K. Ramakrishnan and S. Floyd",
+  title         = "A Proposal to Add Explicit Congestion
+                   Notification ({ECN}) to {IP}",
+  howpublished  = "RFC 2481",
+  month         = jan,
+  year          = "1999"
+};
+
+
+% misc for a German regulation
+% In German, the first letters of nouns are capitalized, so we do so here.
+% From the June 2002 issue of "IEEE Journal in Selected Areas in
+% Communication", page 892, reference #9.
+@misc{IEEEexample:miscgermanreg,
+  title         = "{M}essung von {S}t{\"o}rfeldern an {A}nlagen
+                   und {L}eitungen der {T}elekommunikation im
+                   {F}requenzbereich 9 {kHz} bis 3 {GHz}",
+  language      = "german",
+  howpublished  = "{M}e{\ss}vorschrift {R}eg {TP} {MV} 05",
+  organization  = "Regulierungsbeh{\"o}rde f{\"u}r {T}elekommunikation und
+                   {P}ost ({R}eg {TP})"
+};
+
+
+
+% Ways to handle things like CCSDS's Blue Books
+% journal article with a URL. However, this is not a very good approach
+% because the Blue Books are not really journals and the author field has
+% to be abused.
+% From the June 2002 issue of "IEEE Transactions on Information Theory",
+% page 1461, reference #7.
+@article{IEEEexample:bluebookarticle,
+  author        = "{Consulative Committee for Space Data Systems (CCSDS)}",
+  title         = "Telemetry Channel Coding",
+  journal       = "Blue Book",
+  number        = "4",
+  year          = "1999",
+  url           = "http://www.ccsds.org/documents/pdf/CCSDS-101.0-B-4.pdf"
+};
+
+
+% CCSDS's Blue Book handled as a book
+% However, it is not a good idea to have to use the author field for
+% an organization (done here because the book entry type requires an
+% author field).
+@book{IEEEexample:bluebookbook,
+  author        = "{Consulative Committee for Space Data Systems (CCSDS)}",
+  title         = "Telemetry Channel Coding",
+  series        = "Blue Book",
+  number        = "4",
+  publisher     = "CCSDS",
+  address       = "Newport Beach, CA",
+  year          = "1999",
+  url           = "http://www.ccsds.org/documents/pdf/CCSDS-101.0-B-4.pdf"
+};
+
+% CCSDS's Blue Book handled as a manual
+% This is a much better approach, but uses the howpublished field.
+@manual{IEEEexample:bluebookmanual,
+  title         = "Telemetry Channel Coding",
+  howpublished  = "ser. Blue Book, No. 4",
+  organization  = "Consulative Committee for Space Data Systems (CCSDS)",
+  address       = "Newport Beach, CA",
+  year          = "1999",
+  url           = "http://www.ccsds.org/documents/pdf/CCSDS-101.0-B-4.pdf"
+};
+
+
+
+% CCSDS's Blue Book handled as a standard
+% Probably the best approach for this particular case because the work
+% is standard related. Note that IEEE does not display the address for
+% standards.
+@standard{IEEEexample:bluebookstandard,
+  title         = "Telemetry Channel Coding",
+  howpublished  = "ser. Blue Book, No. 4",
+  organization  = "Consulative Committee for Space Data Systems (CCSDS)",
+  address       = "Newport Beach, CA",
+  type          = "Recommendation for Space Data System Standard",
+  number        = "101.0-B-4",
+  month         = May,
+  year          = "1999",
+  url           = "http://www.ccsds.org/documents/pdf/CCSDS-101.0-B-4.pdf"
+};
+
+
+
+
+
+
+% An example of a IEEEtran control entry which can change some IEEEtran.bst
+% settings. An entry like this must be cited via \bstctlcite{} command
+% before the first real \cite{}. The same entry key cannot be called twice
+% (just like multiple \cite{} of the same entry key place only one entry
+% in the bibliography.)
+% The available control fields are:
+%
+% CTLuse_article_number
+% "no" turns off the display of the number for articles.
+% "yes" enables
+%
+% CTLuse_paper
+% "no" turns off the display of the paper and type fields in inproceedings.
+% "yes" enables
+%
+% CTLuse_forced_etal
+% "no" turns off the forced use of "et al."
+% "yes" enables
+%
+% CTLmax_names_forced_etal
+% The maximum number of names that can be present beyond which an "et al."
+% usage is forced. Be sure that CTLnames_show_etal (below)
+% is not greater than this value!
+%
+% CTLnames_show_etal
+% The number of names that will be shown with a forced "et al.".
+% Must be less than or equal to CTLmax_names_forced_etal
+%
+% CTLuse_alt_spacing
+% "no" turns off the alternate interword spacing for entries with URLs.
+% "yes" enables
+%
+% CTLalt_stretch_factor
+% If alternate interword spacing for entries with URLs is enabled, this is
+% the interword spacing stretch factor that will be used. For example, the
+% default "4" here means that the interword spacing in entries with URLs can
+% stretch to four times normal. Does not have to be an integer.
+%
+% CTLdash_repeated_names
+% "no" turns off the "dashification" of repeated (i.e., identical to those
+% of the previous entry) names. IEEE normally does this.
+% "yes" enables
+%
+% CTLname_format_string
+% The name format control string as explained in the BibTeX style hacking
+% guide.
+% IEEE style "{f.~}{vv~}{ll}{, jj}" is the default,
+%
+% CTL_name_latex_cmd
+% A LaTeX command that each name will be fed to (e.g., "\textsc").
+% Leave empty if no special font is desired for the names.
+% The default is empty.
+%
+% Those fields that are not to be changed can be left out or empty.
+@IEEEtranBSTCTL{IEEEexample:BSTcontrol,
+  CTLuse_article_number     = "yes",
+  CTLuse_paper              = "yes",
+  CTLuse_forced_etal        = "no",
+  CTLmax_names_forced_etal  = "10",
+  CTLnames_show_etal        = "1",
+  CTLuse_alt_spacing        = "yes",
+  CTLalt_stretch_factor     = "4",
+  CTLdash_repeated_names    = "yes",
+  CTLname_format_string     = "{f.~}{vv~}{ll}{, jj}",
+  CTLname_latex_cmd         = ""
+};
+
+
+
+
+
+
+
+@book{birkhof,
+	author="R. A. Horn and C. R. Johnson",
+	year="1985",
+	title="Matrix analysis",
+	publisher="Cambridge University Press",
+}
+
+
+@article{geometric,
+	author="J. Shen",
+	year="2000",
+	title="A geometric approach to ergodic non-homogeneous markov chains",
+	journal="Wavelet Analysis and multiresolution methods",
+	pages="341-366"
+}
+
+
+@article{optimalc,
+	author="J. C. Delvenne and R. Carli and S. Zampieri",
+	year="2009",
+	title="Optimal strategies in the average consensus problem",
+	journal="Wavelet Analysis and multiresolution methods",
+   volume="56",
+	pages="759-765"
+}
+
+
+@article{ergodicityb,
+	author="B. Touri and A. Nedi\'c",
+	year="2011",
+	title="On ergodicity, infinite flow and consensus in random models",
+	journal="IEEE Transactions on Automatic Control",
+   volume="56",
+   number="7",
+   pages="1593-1605",
+  }
+
+IEEE TRANSACTIONS ON AUTOMATIC CONTROL
+
+
+@article{gossipa,
+	author="T. C. Aysal and M. E. Yildiz and A. D. Sarwate and A. Scaglione",
+	year="2006",
+	title="Randomized gossip algorithms",
+	journal="IEEE Transactions on Information Theory",
+   volume="52",
+	pages="2508-2530"
+}
+
+
+@article{lorenzc,
+	author="S. Boyd, and A. Ghosh, and B. Prabhakar, and D. Shah,",
+	year="2005",
+	title="Gossip Algorithms: Design, Analysis, and Applications",
+	journal="IEEE Infocom",
+   volume="3",
+   pages="1653-1664"
+}
+
+
+@article{zorn,
+	author="J. D. Weston",
+	year="1957",
+	title="A short proof of \mbox{Zorn's} Lemma",
+	journal="Archiv der Mathematik",
+   volume="8",
+   number="4"
+   pages="297"
+}
+
+
+@book{topicsa,
+	author="I. N. Herstein",
+	year="2006",
+	title="Topics in algebra",
+	publisher=" Wiley India Pvt. Ltd",
+}
+
+@book{seneta2006non,
+  title={Non-negative matrices and Markov chains},
+  author={Seneta, Eugene},
+  year={2006},
+  publisher={Springer}
+}
+
+@article{bell1965gershgorin,
+  title={Gershgorin's theorem and the zeros of polynomials},
+  author={Bell, Howard E},
+  journal={American Mathematical Monthly},
+  pages={292--295},
+  year={1965},
+  publisher={JSTOR}
+}
+
+@article{hwang2004cauchy,
+  title={Cauchy's interlace theorem for eigenvalues of Hermitian matrices},
+  author={Hwang, Suk-Geun},
+  journal={American Mathematical Monthly},
+  pages={157--159},
+  year={2004},
+  publisher={JSTOR}
+}
+
+
+
+@book{convexa,
+	author="D. P. Bertsekas and A. Nedi\'c and A. Ozdaglar",
+	year="2003",
+	title="Convex analysis and optimization",
+	publisher="Athena Scientific, Belmont, MA",
+}
+
+
+
+@book{apostol,
+	author=" T. M. Apostol",
+	year="1981",
+	title="Mathematical analysis",
+	publisher="Wesley Publishing Company",
+}
+
+
+@phdthesis{lorenzt,
+	author="Lorenz, J.",
+	year="2007",
+	title="Repeated averaging and bounded-confidence, modeling, analysis and simulation of continuous opinion dynamics",
+	institution="University of Bremen"
+}
+
+
+
+@article{mobilej,
+	author="A. Jadbabaie and J. Lin and A. S. Morse",
+	year="2003",
+	title="Coordination of groups of mobile autonomous agents using nearest neighbor rules",
+	journal="IEEE Transactions. Autom. Control",
+   volume="48",
+	pages="988-1001"
+}
+@article{finitec,
+	author="L.Wang and F. Xiao",
+	year="2010",
+	title="Finite-time consensus problems for networks of dynamic agents",
+	journal="IEEE Transaction On Automatic Control",
+   volume="55",
+	number="5"
+}
+
+
+@article{consensusb,
+	author="T. C. Aysal and A. D. Sarwate, and A. G. Dimakis",
+	year="2009",
+	title="Reaching consensus in wireless networks with probabilistic broadcast",
+	journal="Allerton'09 Proceedings of the 47th annual Allerton conference on communication, control, and computing",
+   pages="732-739"
+}
+
+
+
+@article{hegselmannk,
+	author="Hegselmann, R. and Krause, U.",
+	year="2002",
+	title="Opinion dynamics and bounded confidence models, analysis, and simulation",
+	journal="Artificial Societies and Social Simulation",
+   volume="5",
+	pages="1-33"
+}
+
+
+@article{Fundamental,
+	author="Coppersmith, D. and Tetali, P. and Winkler, P.",
+	year="1993",
+	title="Collisions among random walks on a graph",
+	journal="SIAM J. on Discrete Mathematics",
+   volume="6",
+	pages="363-374"
+}
+
+@article{Kashyab,
+	author="Kashyap, A. and Ba\c{s}ar, T. and Srikant, R,",
+	year="2007",
+	title="Quantized Consensus",
+	journal="Automatica",
+  	pages="1192-1203"
+}
+
+
+
+@article{behrouzt,
+	author="B. Touri",
+	year="2011",
+	title="Product of Random Stochastic Matrices and Distributed Averaging",
+	journal="PhD Thesis, Department of Industrial Engineering, UIUC",
+}
+
+
+@article{finitecp,
+	author="S. Sundaran and C. N. Hadjicostis",
+	year="2007",
+	title="Finite-time distributed consensus in graphs with time-invariant topologies",
+	journal="American Control Conference",
+	pages="711-716"
+}
+
+
+
+@article{reachingc,
+	author="M. H. DeGroot,
+	year="1974",
+	title="Reaching a consensus",
+	journal="Journal of American Statistical Association",
+   volume="69",
+	pages="118�1"
+}
+
+
+
+@article{alex,
+	author="A. Olshevsky and J. Tsitsiklis",
+	year="2008",
+	title="On the nonexistence of quadratic lyapunov functions
+for consensus algorithms",
+	journal="IEEE Transactions on Automatic Control",
+   volume="53",
+	pages="2642�45"
+}
+
+
+
+
+@article{julient,
+	author="J. M. Hendrickx",
+	year="2011",
+	title="Graphs and networks for the analysis of autonomous agent systems",
+	journal="Ph.D. Thesis, Universit磂 Catholique de Louvain",
+}
+
+
+@article{distributedaa,
+	author="L. Xiao, and S. Boyd,",
+	year="2004",
+	title="Fast Linear Iterations for Distributed Averaging",
+	journal="Systems and Control Letters",
+   pages="65�"
+}
+
+
+@article{Covertime,
+	author="R. Els鋝sera, and T. Sauerwald,",
+	year="2011",
+	title="Tight bounds for the cover time of multiple random walks",
+	journal="Theoretical Computer Science",
+   volume="412",
+   pages="2623-2641"
+}
+
+@article{Explore-fast-graph,
+	author="C. Avin, and 	M. Kouck� and Z. Lotker,",
+	year="2008",
+	title="How to Explore a Fast-Changing World (Cover Time of a Simple Random Walk on Evolving Graphs)",
+	journal="Proceedings of the 35th international colloquium on Automata, Languages and Programming, Part I",
+   pages="121-132"
+}
+
+@article{productcover,
+	author="M. Abdullah, and C. Cooper, and T. Radzik",
+	year="2012",
+	title="The Cover Time of Cartesian Product Graphs",
+	journal="arXiv preprint arXiv,1202.5569",
+}
+
+
+
+
+@article{gossipca,
+	author="P. F. R. Carli and F. Fagnani and S. Zampieri",
+	year="2010",
+	title="Gossip consensus algorithms via quantized
+communication",
+	journal="Automatica",
+   volume="46",
+   pages="70-80"
+}
+
+@article{consensusgp,
+	author="A. Tahbaz-Salehi and A. Jadbabaie",
+	year="2010",
+	title="Consensus over ergodic stationary graph processes,�IEEE Transactions on Automatic Control�
+	journal="IEEE Transactions on Automatic Control",
+   volume="55",
+	pages="225-230"
+}
+
+@article{tsitsiklist,
+	author="J. Tsitsiklis",
+	year="1984",
+	title="Problems in decentralized decision making and computation�
+	journal="Ph.D. dissertation, Dept. of Electrical Engineering and Computer Science, MIT",
+}
+
+
+@unpublished{cdc2012,
+	author="Nedi\'c, A. and Touri, B.",
+	title="Hegselmann-Krause Dynamics: An Upper Bound on Termination Time",
+	note="Proceeding IEEE Conference on Decision and Control, Maui, Hawaii, December 2012"
+}
+
+@inproceedings{TouriNedich:Asilomar2011,
+  title={Discrete-time opinion dynamics},
+  author={Touri, B. and Nedic, A.},
+  booktitle={Signals, Systems and Computers (ASILOMAR), 2011 Conference Record of the Proceeding IEEE Forty Fifth Asilomar Conference},
+  pages={1172--1176},
+  year={2011},
+ }
+
+
+@article{kolmogoroff,
+	author="P. Tetali,",
+	year="1991",
+	title="Random Walks and the Effective Resistance of Networks",
+	journal="Journal of Theoretical Probability",
+   volume="4",
+   pages="101-109"
+}
+
+
+@article{birkhof,
+	author="H. J. Schmidt",
+	year="1997",
+	title="A New Proof of Birkhoff's Theorem�
+	journal="Grav.Cosmol",
+   volume="3",
+   pages="185-190"
+}
+
+
+@book{TouriNedich:CDC2012,
+	author="B. Touri and A. Nedi\'c",
+	year="2009",
+	title="On existence of a quadratic comparison function for random weighted averaging dynamics and its implications",
+	publisher="Proceedings of the 50th IEEE Conference on Decision and
+               Control and European Control Conference, CDC-ECC 2011, Orlando,
+               FL, USA, December 12-15, 2011",
+}
+
+@book{Bertsekas,
+	author="D. P. Bertsekas and J. N. Tsitsiklis",
+	year="1989",
+	title="Parallel and Distributed Computation",
+	publisher="Old Tappan, NJ (USA); Prentice Hall Inc",
+}
+
+@book{Markov-Book,
+	author="D. A. Levin and Y. Peres and E. L. Wilmer",
+	year="2009",
+	title="Markov Chains and Mixing Times",
+	publisher="American Mathematical Society",
+}
+
+@book{Bullo,
+	author="F. Bullo and J. Cortes and S. Martinez",
+	year="2009",
+	title="Distributed Control of Robotic Networks",
+	publisher="Princeton University Press",
+}
+
+@article{robot-krause,
+	author="M. Zhu, and S. Martinez,",
+	year="2011",
+	title="On the Convergence Time of Asynchronous Distributed Quantized Averaging Algorithms",
+	journal="IEEE Transaction on Automatic Control",
+   volume="56",
+   pages="386-390"
+}
+
+@article{yildiz2011discrete,
+  title={Discrete opinion dynamics with stubborn agents},
+  author={Yildiz, Ercan and Acemoglu, Daron and Ozdaglar, Asuman and Saberi, Amin and Scaglione, Anna},
+  journal={Available at SSRN 1744113},
+  year={2011}
+}
+
+@inproceedings{singer2012win,
+  title={How to win friends and influence people, truthfully: influence maximization mechanisms for social networks},
+  author={Singer, Yaron},
+  booktitle={Proceedings of the Fifth ACM International Conference on Web Search and Data Mining},
+  pages={733--742},
+  year={2012},
+  organization={ACM}
+}
+
+@inproceedings{richardson2002mining,
+  title={Mining knowledge-sharing sites for viral marketing},
+  author={Richardson, Matthew and Domingos, Pedro},
+  booktitle={Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages={61--70},
+  year={2002},
+  organization={ACM}
+}
+
+@inproceedings{acemoglu2011diffusion,
+  title={Diffusion of innovations in social networks},
+  author={Acemoglu, Daron and Ozdaglar, Asuman and Yildiz, Ercan},
+  booktitle={Decision and Control and European Control Conference (CDC-ECC), 2011 50th IEEE Conference on},
+  pages={2329--2334},
+  year={2011},
+  organization={IEEE}
+}
+
+@inproceedings{branzei2011social,
+  title={Social distance games},
+  author={Br{\^a}nzei, Simina and Larson, Kate},
+  booktitle={Proceedings of the Twenty-Second International Joint Conference on Artificial Intelligence-Volume One},
+  pages={91--96},
+  year={2011},
+  organization={AAAI Press}
+}
+
+@article{young2002diffusion,
+  title={The diffusion of innovations in social networks},
+  author={Young, H Peyton},
+  journal={Economy as an Evolving Complex System. Proceedings volume in the Santa Fe Institute studies in the sciences of complexity},
+  volume={3},
+  pages={267--282},
+  year={2002}
+}
+
+@article{gionis2013opinion,
+  title={Opinion maximization in social networks},
+  author={Gionis, Aristides and Terzi, Evimaria and Tsaparas, Panayiotis},
+  journal={arXiv preprint arXiv:1301.7455},
+  year={2013}
+}
+
+@inproceedings{rabinovich1992quadratic,
+  title={Quadratic dynamical systems},
+  author={Rabinovich, Yuri and Sinclair, Alistair and Wigderson, Avi},
+  booktitle={Foundations of Computer Science, 1992. Proceedings., 33rd Annual Symposium on},
+  pages={304--313},
+  year={1992},
+  organization={IEEE}
+}
+
+@inproceedings{acemoglu2011opinion,
+  title={Opinion fluctuations and persistent disagreement in social networks},
+  author={Acemoglu, Daron and Como, Giacomo and Fagnani, Fabio and Ozdaglar, Asuman},
+  booktitle={Decision and Control and European Control Conference (CDC-ECC), 2011 50th IEEE Conference on},
+  pages={2347--2352},
+  year={2011},
+  organization={IEEE}
+}
+
+@inproceedings{goyal2012competitive,
+  title={Competitive contagion in networks},
+  author={Goyal, Sanjeev and Kearns, Michael},
+  booktitle={Proceedings of the 44th symposium on Theory of Computing},
+  pages={759--774},
+  year={2012},
+  organization={ACM}
+}
+
+@article{mossel2010submodularity,
+  title={Submodularity of influence in social networks: From local to global},
+  author={Mossel, Elchanan and Roch, Sebastien},
+  journal={SIAM Journal on Computing},
+  volume={39},
+  number={6},
+  pages={2176--2188},
+  year={2010},
+  publisher={SIAM}
+}
+
+@inproceedings{kempe2003maximizing,
+  title={Maximizing the spread of influence through a social network},
+  author={Kempe, David and Kleinberg, Jon and Tardos, {\'E}va},
+  booktitle={Proceedings of the Ninth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  pages={137--146},
+  year={2003},
+  organization={ACM}
+}
+
+@article{alon2010note,
+  title={A note on competitive diffusion through social networks},
+  author={Alon, Noga and Feldman, Michal and Procaccia, Ariel D and Tennenholtz, Moshe},
+  journal={Information Processing Letters},
+  volume={110},
+  number={6},
+  pages={221--225},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@incollection{bharathi2007competitive,
+  title={Competitive influence maximization in social networks},
+  author={Bharathi, Shishir and Kempe, David and Salek, Mahyar},
+  booktitle={Internet and Network Economics},
+  pages={306--311},
+  year={2007},
+  publisher={Springer}
+}
+
+@article{small2012information,
+  title={Information diffusion on the iterated local transitivity model of online social networks},
+  author={Small, Lucy and Mason, Oliver},
+  journal={Discrete Applied Mathematics},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@article{takehara2012comment,
+  title={A comment on pure-strategy {N}ash equilibria in competitive diffusion games},
+  author={Takehara, Reiko and Hachimori, Masahiro and Shigeno, Maiko},
+  journal={Information Processing Letters},
+  volume={112},
+  number={3},
+  pages={59--60},
+  year={2012},
+  publisher={Elsevier}
+}
+
+@incollection{durr2007nash,
+  title={Nash equilibria in Voronoi games on graphs},
+  author={D{\"u}rr, Christoph and Thang, Nguyen Kim},
+  booktitle={Algorithms--ESA 2007},
+  pages={17--28},
+  year={2007},
+  publisher={Springer}
+}
+
+@article{ackerman2010combinatorial,
+  title={Combinatorial model and bounds for target set selection},
+  author={Ackerman, Eyal and Ben-Zwi, Oren and Wolfovitz, Guy},
+  journal={Theoretical Computer Science},
+  volume={411},
+  number={44},
+  pages={4017--4022},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@incollection{fazli2012non,
+  title={On the non-progressive spread of influence through social networks},
+  author={Fazli, MohammadAmin and Ghodsi, Mohammad and Habibi, Jafar and Khalilabadi, Pooya Jalaly and Mirrokni, Vahab and Sadeghabad, Sina Sadeghian},
+  booktitle={LATIN 2012: Theoretical Informatics},
+  pages={315--326},
+  year={2012},
+  publisher={Springer}
+}
+
+@article{garey1975complexity,
+  title={Complexity results for multiprocessor scheduling under resource constraints},
+  author={Garey, Michael R and Johnson, David S.},
+  journal={SIAM Journal on Computing},
+  volume={4},
+  number={4},
+  pages={397--411},
+  year={1975},
+  publisher={SIAM}
+}
+
+@article{small2013nash,
+  title={Nash Equilibria for competitive information diffusion on trees},
+  author={Small, Lucy and Mason, Oliver},
+  journal={Information Processing Letters},
+  volume={113},
+  number={7},
+  pages={217--219},
+  year={2013},
+  publisher={Elsevier}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@incollection{pollatos2008social,
+  title={On the social cost of distributed selfish content replication},
+  author={Pollatos, Gerasimos G and Telelis, Orestis A and Zissimopoulos, Vassilis},
+  booktitle={NETWORKING 2008 Ad Hoc and Sensor Networks, Wireless Networks, Next Generation Internet},
+  pages={195--206},
+  year={2008},
+  publisher={Springer}
+}
+
+@techreport{goyal2000learning,
+  title={Learning, network formation and coordination},
+  author={Goyal, Sanjeev and Vega-Redondo, Fernando},
+  year={2000},
+  institution={Tinbergen Institute}
+}
+
+@article{goemans2006market,
+  title={Market sharing games applied to content distribution in ad hoc networks},
+  author={Goemans, Michel X and Li, Li and Mirrokni, Vahab S and Thottan, Marina},
+  journal={Selected Areas in Communications, IEEE Journal on},
+  volume={24},
+  number={5},
+  pages={1020--1033},
+  year={2006},
+  publisher={IEEE}
+}
+
+@article{kawald2012dynamics,
+  title={On Dynamics in Selfish Network Creation},
+  author={Kawald, Bernd and Lenzner, Pascal},
+  journal={arXiv preprint arXiv:1212.4797},
+  year={2012}
+}
+
+@inproceedings{chun2004selfish,
+  title={Selfish caching in distributed systems: a game-theoretic analysis},
+  author={Chun, Byung-Gon and Chaudhuri, Kamalika and Wee, Hoeteck and Barreno, Marco and Papadimitriou, Christos H and Kubiatowicz, John},
+  booktitle={Proceedings of the twenty-third annual ACM symposium on Principles of distributed computing},
+  pages={21--30},
+  year={2004},
+  organization={ACM}
+}
+
+@article{laoutaris2006distributed,
+  title={Distributed selfish replication},
+  author={Laoutaris, Nikolaos and Telelis, Orestis and Zissimopoulos, Vassilios and Stavrakakis, Ioannis},
+  journal={Parallel and Distributed Systems, IEEE Transactions on},
+  volume={17},
+  number={12},
+  pages={1401--1413},
+  year={2006},
+  publisher={IEEE}
+}
+
+@incollection{gopalakrishnan2012cache,
+  title={Cache me if you can: capacitated selfish replication games},
+  author={Gopalakrishnan, Ragavendran and Kanoulas, Dimitrios and Karuturi, Naga Naresh and Rangan, C Pandu and Rajaraman, Rajmohan and Sundaram, Ravi},
+  booktitle={LATIN 2012: Theoretical Informatics},
+  pages={420--432},
+  year={2012},
+  publisher={Springer}
+}
+
+@article{pacifici2012convergence,
+  title={Convergence in Player-Specific Graphical Resource Allocation Games},
+  author={Pacifici, Valentino and Dan, Gyorgy},
+  journal={Selected Areas in Communications, IEEE Journal on},
+  volume={30},
+  number={11},
+  pages={2190--2199},
+  year={2012},
+  publisher={IEEE}
+}
+
+@incollection{southwell2012convergence,
+  title={Convergence Dynamics of Resource-Homogeneous Congestion Games},
+  author={Southwell, Richard and Huang, Jianwei},
+  booktitle={Game Theory for Networks},
+  pages={281--293},
+  year={2012},
+  publisher={Springer}
+}
+
+@article{milchtaich1996congestion,
+  title={Congestion games with player-specific payoff functions},
+  author={Milchtaich, Igal},
+  journal={Games and economic behavior},
+  volume={13},
+  number={1},
+  pages={111--124},
+  year={1996},
+  publisher={Elsevier Science}
+}
+
+@inproceedings{fabrikant2003network,
+  title={On a network creation game},
+  author={Fabrikant, Alex and Luthra, Ankur and Maneva, Elitza and Papadimitriou, Christos H and Shenker, Scott},
+  booktitle={Proceedings of the twenty-second annual symposium on Principles of distributed computing},
+  pages={347--351},
+  year={2003},
+  organization={ACM}
+}
+
+@inproceedings{jacobson2009networking,
+  title={Networking named content},
+  author={Jacobson, Van and Smetters, Diana K and Thornton, James D and Plass, Michael F and Briggs, Nicholas H and Braynard, Rebecca L},
+  booktitle={Proceedings of the 5th international conference on Emerging networking experiments and technologies},
+  pages={1--12},
+  year={2009},
+  organization={ACM}
+}
+
+@article{etesami2013quantized,
+  title={Convergence time for unbiased quantized consensus},
+  author={S.R. Etesami and T. Ba\c{s}ar},
+  journal={Proc. 52nd IEEE Conference on Decision and Control. CDC'13, Dec 10-13, 2013; Florence, Italy},
+  pages={6190-6195},
+  year={2013},
+}
+
+@article{etesami2013Hegselmannkrause,
+  title={Termination time of multidimensional {H}egselmann-{K}rause opinion dynamics},
+  author={S.R. Etesami and T. Ba\c{s}ar and A. Nedich, and B. Touri},
+  journal={Proc. 2013 American Control Conference (ACC 2013), Washington, DC, June 17-19},
+  pages={1257-1262},
+  year={2013},
+}
+
+@inproceedings{Abelson1964,
+  title={Mathematical models of the distribution of attitudes under controversy},
+  author={R. P. Abelson},
+  booktitle={In Frederiksen N and Gulliksen H (Eds.), Contributions to Mathematical Psychology, New York, 
+NY: Holt, Rinehart, and Winston},
+  year={1964},
+}
+
+@article{friedkin1999social,
+  title={Social influence networks and opinion change},
+  author={Friedkin, Noah E and Johnsen, Eugene C},
+  journal={Advances in Group Processes},
+  volume={16},
+  number={1},
+  pages={1--29},
+  year={1999}
+}
+
+
+@article{dittmer2001,
+  title={Consensus formation under bounded confidence},
+  author={J. C. Dittmer},
+  journal={Nonlinear Analysis},
+  volume={47},
+  pages={4615--4621},
+  year={2001}
+}
+
+@article{olfati2004consensus,
+  title={Consensus problems in networks of agents with switching topology and time-delays},
+  author={Olfati-Saber, Reza and Murray, Richard M},
+  journal={Automatic Control, IEEE Transactions on},
+  volume={49},
+  number={9},
+  pages={1520--1533},
+  year={2004},
+  publisher={IEEE}
+}
+
+@article{xiao2007distributed,
+  title={Distributed average consensus with least-mean-square deviation},
+  author={Xiao, Lin and Boyd, Stephen and Kim, Seung-Jean},
+  journal={Journal of Parallel and Distributed Computing},
+  volume={67},
+  number={1},
+  pages={33--46},
+  year={2007},
+  publisher={Elsevier}
+}
+
+@inproceedings{ghosh1994dynamic,
+  title={Dynamic load balancing in parallel and distributed networks by random matchings},
+  author={Ghosh, Bhaskar and Muthukrishnan, S},
+  booktitle={Proceedings of the sixth annual ACM symposium on Parallel algorithms and architectures},
+  pages={226--235},
+  year={1994},
+  organization={ACM}
+}
+
+@inproceedings{bhattacharyya2013convergence,
+  title={On the convergence of the {H}egselmann-{K}rause system},
+  author={Bhattacharyya, Arnab and Braverman, Mark and Chazelle, Bernard and Nguyen, Huy L},
+  booktitle={Proceedings of the 4th Conference on Innovations in Theoretical Computer Science},
+  pages={61--66},
+  year={2013},
+  organization={ACM}
+}
+
+@inproceedings{mohajer2012convergence,
+  title={On Convergence Rate of Scalar {H}egselmann-{K}rause Dynamics},
+  author={Mohajer, Soheil and Touri, Behrouz},
+  booktitle={Proc. American Control Conference (ACC), 2013},
+  pages={206--210},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{nedic2012multi,
+  title={Multi-dimensional {H}egselmann-{K}rause dynamics},
+  author={Nedi\'c, Angelia and Touri, Behrouz},
+  booktitle={Proc. 2012 IEEE 51st Annual Conference on Decision and Control (CDC)},
+  pages={68--73},
+  year={2012},
+  organization={IEEE}
+}
+
+@inproceedings{etesami2013termination,
+  title={Termination time of multidimensional {H}egselmann-{K}rause opinion dynamics},
+  author={Etesami, Seyed Rasoul and Ba\c{s}ar, Tamer and Nedi\'c, Angelia and Touri, Behrouz},
+  booktitle={Proc. American Control Conference (ACC), 2013},
+  pages={1255--1260},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{goemans2006market,
+  title={Market sharing games applied to content distribution in ad hoc networks},
+  author={Goemans, Michel X and Li, Li and Mirrokni, Vahab S and Thottan, Marina},
+  journal={Selected Areas in Communications, IEEE Journal on},
+  volume={24},
+  number={5},
+  pages={1020--1033},
+  year={2006},
+  publisher={IEEE}
+}
+
+@article{kolmogoroff,
+	author="P. Tetali,",
+	year="1991",
+	title="Random Walks and the Effective Resistance of Networks",
+	journal="Journal of Theoretical Probability",
+   volume="4",
+   pages="101-109"
+}
+
+@incollection{saloff1997lectures,
+  title={Lectures on finite {M}arkov chains},
+  author={Saloff-Coste, Laurent},
+  booktitle={Lectures on Probability Theory and Statistics},
+  pages={301--413},
+  year={1997},
+  publisher={Springer}
+}
+
+@book{godsil2001algebraic,
+  title={Algebraic graph theory},
+  author={Godsil, Christopher David and Royle, Gordon and Godsil, CD},
+  year={2001},
+  publisher={Springer, New York}
+}
+
+@book{horn2012matrix,
+  title={Matrix {A}nalysis},
+  author={Horn, Roger A and Johnson, Charles R},
+  year={2012},
+  publisher={Cambridge University Press}
+}
+
+@article{lovasz1993random,
+  title={Random walks on graphs: A survey},
+  author={Lov{\'a}sz, L{\'a}szl{\'o}},
+  journal={Combinatorics, Paul Erdos is eighty},
+  volume={2},
+  number={1},
+  pages={1--46},
+  year={1993}
+}
+
+@article{catral2010kemeny,
+  title={The {K}emeny constant for finite homogeneous ergodic {M}arkov chains},
+  author={Catral, M and Kirkland, Stephen J and Neumann, M and Sze, N-S},
+  journal={Journal of Scientific Computing},
+  volume={45},
+  number={1-3},
+  pages={151--166},
+  year={2010},
+  publisher={Springer}
+}
+
+@article{anderson1985eigenvalues,
+  title={Eigenvalues of the {L}aplacian of a graph*},
+  author={Anderson Jr, William N and Morley, Thomas D},
+  journal={Linear and Multilinear Algebra},
+  volume={18},
+  number={2},
+  pages={141--145},
+  year={1985},
+  publisher={Taylor \& Francis}
+}
+
+@article{jiong1997new,
+  title={A new upper bound for eigenvalues of the {L}aplacian matrix of a graph},
+  author={Jiong-Sheng, Li and Xiao-Dong, Zhang},
+  journal={Linear Algebra and Its Applications},
+  volume={265},
+  number={1},
+  pages={93--100},
+  year={1997},
+  publisher={Elsevier}
+}
+
+@article{zhu2011convergence,
+  title={On the convergence time of asynchronous distributed quantized averaging algorithms},
+  author={Zhu, Minghui and Martinez, Sonia},
+  journal={Automatic Control, IEEE Transactions on},
+  volume={56},
+  number={2},
+  pages={386--390},
+  year={2011},
+  publisher={IEEE}
+}
+
+@book{bollobas2001random,
+  title={Random graphs},
+  author={Bollob{\'a}s, B{\'e}la},
+  volume={73},
+  year={2001},
+  publisher={Cambridge University Press}
+}
+
+@book{basar1999dynamic,
+  title={Dynamic Noncooperative Game Theory},
+  author={Ba\c{s}ar, Tamer and Olsder, Geert Jan},
+  volume={23},
+  year={1999},
+  publisher={SIAM}
+}
+
+
+@incollection{Huberman2003communities,
+  title={Finding Communities in Linear Time: {A} Physics Approach},
+  author={Wu, Fang and Huberman, Bernardo A.},
+  booktitle={http://arxiv.org/abs/cond-mat/0310600},
+  year={2003}
+}
+
+@incollection{Newman2006communities,
+    author = {Newman, M. E. J.},
+    booktitle = {Physical Review E (Statistical, Nonlinear, and Soft Matter Physics)},
+    number = {3},
+    pages = {036104+},
+    publisher = {APS},
+    title = {Finding community structure in networks using the eigenvectors of matrices},
+    volume = {74},
+    year = {2006}
+}
+
+
+@article{newman2004detecting,
+  title={Detecting Community Structure in Networks},
+  author={Newman, M. E. J.},
+  journal={Eur. Phys. J. B},
+  volume={38},
+  pages={321-330},
+  year={2004},
+}
+
+@article{pineda2013noisy,
+  title={The noisy {H}egselmann-{K}rause model for opinion dynamics},
+  author={Pineda, Miguel and Toral, Ra{\'u}l and Hern{\'a}ndez-Garc{\'\i}a, Emilio},
+  journal={The European Physical Journal B},
+  volume={86},
+  number={12},
+  pages={1--10},
+  year={2013},
+  publisher={Springer}
+}
+
+@article{kurz2011hegselmann,
+  title={On the {H}egselmann-{K}rause conjecture in opinion dynamics},
+  author={Kurz, Sascha and Rambau, J{\"o}rg},
+  journal={Journal of Difference Equations and Applications},
+  volume={17},
+  number={6},
+  pages={859--876},
+  year={2011},
+  publisher={Taylor \& Francis}
+}
+
+@article{hendrickx2013symmetric,
+  title={On symmetric continuum opinion dynamics},
+  author={Hendrickx, Julien M and Olshevsky, Alex},
+  journal={Proc. 52nd IEEE Conference on Decision and Control (CDC)},
+  pages={1989--1994},
+  year={2013}
+}
+
+@inproceedings{blondel20072r,
+  title={On the 2R conjecture for multi-agent systems},
+  author={Blondel, Vincent D and Hendrickx, Julien M and Tsitsiklis, John N},
+  booktitle={Proceedings of the European Control Conference 2007 (ECC�07)},
+  pages={874--881},
+  year={2007},
+  organization={Citeseer}
+}
+
+@article{lorenz2007continuous,
+  title={Continuous opinion dynamics under bounded confidence: A survey},
+  author={Lorenz, Jan},
+  journal={International Journal of Modern Physics C},
+  volume={18},
+  number={12},
+  pages={1819--1838},
+  year={2007},
+  publisher={World Scientific}
+}
+
+@inproceedings{roozbehani2008lyapunov,
+  title={Lyapunov analysis of quadratically symmetric neighborhood consensus algorithms},
+  author={Roozbehani, Mardavij and Megretski, Alexandre and Frazzoli, Emilio},
+  booktitle={Proc. 47th IEEE Conference on Decision and Control (CDC)},
+  pages={2252--2257},
+  year={2008},
+  organization={IEEE}
+}
+
+@article{li1987asymptotic,
+  title={Asymptotic agreement and convergence of asynchronous stochastic algorithms},
+  author={Li, Shu and Ba\c{s}ar, Tamer},
+  journal={IEEE Transactions on Automatic Control},
+  volume={32},
+  number={7},
+  pages={612--618},
+  year={1987},
+  publisher={IEEE}
+}
+
+@article{bertsekas1983distributed,
+  title={Distributed asynchronous computation of fixed points},
+  author={Bertsekas, Dimitri P},
+  journal={Mathematical Programming},
+  volume={27},
+  number={1},
+  pages={107--120},
+  year={1983},
+  publisher={Springer}
+}
+
+@article{tsitsiklis1984convergence,
+  title={Convergence and asymptotic agreement in distributed decision problems},
+  author={Tsitsiklis, John N and Athans, Michael},
+  journal={IEEE Transactions on Automatic Control},
+  volume={29},
+  number={1},
+  pages={42--50},
+  year={1984},
+  publisher={IEEE}
+}
+
+@misc{aldous2002reversible,
+  title={Reversible Markov chains and random walks on graphs},
+  author={Aldous, David and Fill, James},
+  year={2002},
+  publisher={Berkeley}
+}
+
+@article{brewer1978kronecker,
+  title={Kronecker products and matrix calculus in system theory},
+  author={Brewer, John},
+  journal={IEEE Transactions on circuits and systems},
+  volume={25},
+  number={9},
+  pages={772--781},
+  year={1978}
+}
+
+@book{gallager1996discrete,
+  title={Discrete stochastic processes},
+  author={Gallager, Robert G},
+  volume={101},
+  year={1996},
+  publisher={Kluwer Academic Publishers Boston}
+}
+
+@article{nonaka2010hitting,
+  title={The hitting and cover times of Metropolis walks},
+  author={Nonaka, Yoshiaki and Ono, Hirotaka and Sadakane, Kunihiko and Yamashita, Masafumi},
+  journal={Theoretical Computer Science},
+  volume={411},
+  number={16},
+  pages={1889--1894},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@inproceedings{shang2013upper,
+  title={An upper bound on the convergence time for quantized consensus},
+  author={Shang, Shang and Cuff, Paul and Hui, Pan and Kulkarni, Sanjeev},
+  booktitle={INFOCOM, 2013 Proceedings IEEE},
+  pages={600--604},
+  year={2013},
+  organization={IEEE}
+}
+
+@article{monderer1996potential,
+  title={Potential games},
+  author={Monderer, Dov and Shapley, Lloyd S},
+  journal={Games and economic behavior},
+  volume={14},
+  number={1},
+  pages={124--143},
+  year={1996},
+  publisher={Elsevier}
+}
+
+@article{mirtabatabaei2012opinion,
+  title={Opinion dynamics in heterogeneous networks: {C}onvergence conjectures and theorems},
+  author={Mirtabatabaei, Anahita and Bullo, Francesco},
+  journal={SIAM Journal on Control and Optimization},
+  volume={50},
+  number={5},
+  pages={2763--2785},
+  year={2012},
+  publisher={SIAM}
+}
+
+@unpublished{etesami2014metropolis,
+	author="Ba\c{s}ar, T. and Etesami, S. R. and Olshevsky, A.",
+	title="Fast Convergence of Quantized Consensus Using Metropolis Weights",
+	note="Proc. 53rd IEEE Conference on Decision and Control (CDC'14, Dec 15-17, 2014; Los Angeles, CA)"
+}
+
+@article{etesami2014arxiv-QC-static-dynamic,
+	author="S. R. Etesami, and T. Ba\c{s}ar,",
+	year="2014",
+	title="Convergence Time for Unbiased Quantized
+Consensus Over Static and Dynamic Networks",
+	journal="arXiv:1403.4109v1",
+}
+
+@article{etesami2014quantizedmetropolis,
+  title={Fast convergence of quantized consensus using {M}etropolis chains},
+  author={Ba\c{s}ar, Tamer and Etesami, Seyed Rasoul and Olshevsky, Alex},
+  journal={Proc. 53rd IEEE Conference on Decision and Control. CDC'14, Dec 15-17, 2014; Los Angeles, CA (to appear)}
+}
+
+@article{etesami2014complexity,
+  title={Complexity of equilibrium in diffusion games on social networks},
+  author={Etesami, Seyed Rasoul and Ba\c{s}ar, Tamer},
+  journal={Proc. 2014 American Control Conference (ACC 2014), Portland, OR, June 4-6, 2014},
+  pages={2077-2082},
+  year={2014}
+}
+
+@article{etesami2014ecethesis,
+  title={Potential-{B}ased {A}nalysis of {S}ocial and {D}istributed {N}etworks},
+  author={Etesami, Seyed Rasoul},
+  journal={https://www.dropbox.com/s/mv00tfktpigkuc1/ecethesis.pdf?n=7673980},
+  year={2014}
+}
+
+@article{masucci2014strategic,
+  title={Strategic resource allocation for competitive influence in social networks},
+  author={Masucci, Antonia Maria and Silva, Alonso},
+  journal={arXiv preprint:1402.5388},
+  year={2014}
+}
+
+@article{ackermann2008impact,
+  title={On the impact of combinatorial structure on congestion games},
+  author={Ackermann, Heiner and R{\"o}glin, Heiko and V{\"o}cking, Berthold},
+  journal={Journal of the ACM (JACM)},
+  volume={55},
+  number={6},
+  pages={25},
+  year={2008},
+  publisher={ACM}
+}
+
+@inproceedings{fabrikant2004complexity,
+  title={The complexity of pure {N}ash equilibria},
+  author={Fabrikant, Alex and Papadimitriou, Christos and Talwar, Kunal},
+  booktitle={Proceedings of the thirty-sixth annual ACM symposium on Theory of computing},
+  pages={604--612},
+  year={2004},
+  organization={ACM}
+}
+
+@inproceedings{vetta2002nash,
+  title={{N}ash equilibria in competitive societies, with applications to facility location, traffic routing and auctions},
+  author={Vetta, Adrian},
+  booktitle={Foundations of Computer Science, 2002. Proceedings. The 43rd Annual IEEE Symposium on},
+  pages={416--425},
+  year={2002},
+  organization={IEEE}
+}
+
+@article{etesami2014pure,
+  title={Pure {N}ash Equilibrium in Capacitated Selfish Replication ({CSR}) Game},
+  author={Etesami, Seyed Rasoul and Ba\c{s}ar, Tamer},
+  journal={arXiv preprint:1404.3442}
+}
+
+@article{etesami2014game,
+  title={Game-Theoretic Analysis of the {H}egselmann-{K}rause Model for Opinion Dynamics in Finite Dimensions},
+  author={Etesami, Seyed Rasoul and Ba\c{s}ar, Tamer},
+  journal={IEEE Transactions on Automatic Control},
+  pages={1886-1897},
+  year={2015},
+  volume={60},
+  number={7},
+}
+
+
+@inproceedings{koutsoupias1999worst,
+  title={Worst-case equilibria},
+  author={Koutsoupias, Elias and Papadimitriou, Christos},
+  booktitle={STACS 99},
+  pages={404--413},
+  year={1999},
+  organization={Springer}
+}
+
+
+@inproceedings{anantharam2004nash,
+  title={On the Nash dynamics of congestion games with player-specific utility},
+  author={Anantharam, Venkat},
+  booktitle={Decision and Control, 2004. CDC. 43rd IEEE Conference on},
+  volume={5},
+  pages={4673--4678},
+  year={2004},
+  organization={IEEE}
+}
+
+
+@article{etesami2015approximation,
+  title={Approximation Algorithm for the Binary-Preference Capacitated Selfish Replication Game and a Tight Bound on its Price of Anarchy},
+  author={Etesami, Seyed Rasoul and Ba\c{s}ar, Tamer},
+  journal={arXiv preprint:1506.04047}
+}
