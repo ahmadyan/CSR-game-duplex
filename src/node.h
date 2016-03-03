@@ -1,13 +1,13 @@
 #pragma once
 
 #include <string>
-#include<vector>
+#include <vector>
 
 class Node{
 public:
+    bool visited;   //used for BFS
+    int id;    
     Node(int);
-    int id;
-    int color;
     std::vector<Node*> adjacencyList;
     bool addEdge(Node*);
     std::string toString();

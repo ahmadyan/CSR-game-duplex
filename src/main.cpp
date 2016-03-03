@@ -1,11 +1,19 @@
 #include <iostream>
 #include "graph.h"
+#include "profile.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     Graph* g = new Graph();
-    g->generateRandomGraph(100, 5);
-    cout << g->toString() << endl ;
-
+    int playerSize = 10;
+    int graphConnectivityFactor=2;
+    int resourceSize = 3;
+    g->generateRandomGraph(playerSize, graphConnectivityFactor);
+    Profile* p = new Profile(playerSize, resourceSize);
+    p->generateRandomProfile();
+    int c0 =p->cost(g->nodes[g->nodes.size()-1]);
+    cout << "cost="<< c0 << endl ;
+    //cout << g->toString() << endl ;
+    return 0;
 }

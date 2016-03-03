@@ -6,7 +6,6 @@
 #include <sstream>
 #include "graph.h"
 
-
 Graph::Graph(){
 }
 
