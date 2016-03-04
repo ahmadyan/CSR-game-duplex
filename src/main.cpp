@@ -9,11 +9,12 @@ int main(int argc, const char * argv[]) {
     int playerSize = 10;
     int graphConnectivityFactor=2;
     int resourceSize = 3;
-    g->generateRandomGraph(playerSize, graphConnectivityFactor);
+    //g->generateRandomGraph(playerSize, graphConnectivityFactor);
+    g->generateErdosRenyiRandomGraph(playerSize, 0.1);
     Profile* p = new Profile(playerSize, resourceSize);
     p->generateRandomProfile();
     int c0 =p->cost(g->nodes[g->nodes.size()-1]);
     cout << "cost="<< c0 << endl ;
-    //cout << g->toString() << endl ;
+    cout << g->toString() << endl ;
     return 0;
 }

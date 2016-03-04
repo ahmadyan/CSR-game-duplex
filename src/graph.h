@@ -8,5 +8,6 @@ public:
     ~Graph();
     std::vector<Node*> nodes;
     void generateRandomGraph(int size, int p);
+    void generateErdosRenyiRandomGraph(int size, double p);
     std::string toString();
 };
