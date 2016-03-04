@@ -7,6 +7,8 @@
 #include <limits>
 #include <set>
 #include <list>
+#include <cstdint>
+#include <numeric>
 
 Profile::Profile(int s, int r){
     size=s;

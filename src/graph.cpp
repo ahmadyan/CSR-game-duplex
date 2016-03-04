@@ -5,8 +5,8 @@
 #include <cmath>
 #include <string>
 #include <sstream>
+#include <cstdint>
 #include "graph.h"
-
 Graph::Graph(){
 }
 

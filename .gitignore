@@ -1,4 +1,7 @@
 xcode.csr/
+
+vs.csr/
+
 *.aux
 
 *.log
