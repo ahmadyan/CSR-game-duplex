@@ -14,7 +14,7 @@ Profile::Profile(int s, int r){
     size=s;
     resources=r;
     allocation = std::vector<int>(size);
-    
+	radius = std::vector<int>(size);
     std::array<int, 624> seed_data;
     std::random_device random_device;
     std::generate_n(seed_data.data(), seed_data.size(), std::ref(random_device));
@@ -49,6 +49,42 @@ std::string Profile::toString(){
     }
     ss << std::endl;
     return ss.str();
+}
+
+//Find the closest node to node v that has the same allocation as v
+int Profile::updateRadius(Node* v){
+	int result = size;	//ideally should be diameter of the graph+1, but size would be fine
+	std::list<Node*> q; //bfs queue
+	std::vector<int> distance(size);
+	std::vector<bool> visited(size);
+	for (int i = 0; i < size; i++){
+		visited[i] = false;
+		distance[i] = std::numeric_limits<int>::max();
+	}
+	distance[v->id] = 0;
+	visited[v->id] = true;
+	q.push_back(v);
+
+	while (!q.empty()){
+		auto u = q.front(); q.pop_front();
+		for (int i = 0; i<u->adjacencyList.size(); i++){
+			auto w = u->adjacencyList[i];
+			if (!visited[w->id]){
+				if (distance[w->id] > distance[u->id] + 1){
+					distance[w->id] = distance[u->id] + 1;
+				}
+				if (allocation[w->id] == allocation[v->id]){
+					if (distance[w->id] < result){
+						std::cout << w->id << " " << v->id << " " << allocation[w->id] << " " <<allocation[v->id] << " " << distance[w->id] << " " << result << std::endl;
+						result = distance[w->id];
+					}
+				}
+				visited[w->id] = true;
+				q.push_back(w);
+			}
+		}
+	}
+	return result;
 }
 
 // computes the sum cost for the player v
