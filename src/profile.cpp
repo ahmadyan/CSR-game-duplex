@@ -51,6 +51,13 @@ std::string Profile::toString(){
     return ss.str();
 }
 
+int Profile::updateRadius(Graph* g){
+	for (int i = 0; i < size; i++){
+		radius[i] = updateRadius(g->nodes[i]);
+	}
+	return 0;
+}
+
 //Find the closest node to node v that has the same allocation as v
 int Profile::updateRadius(Node* v){
 	int result = size;	//ideally should be diameter of the graph+1, but size would be fine
@@ -75,7 +82,7 @@ int Profile::updateRadius(Node* v){
 				}
 				if (allocation[w->id] == allocation[v->id]){
 					if (distance[w->id] < result){
-						std::cout << w->id << " " << v->id << " " << allocation[w->id] << " " <<allocation[v->id] << " " << distance[w->id] << " " << result << std::endl;
+						//std::cout << w->id << " " << v->id << " " << allocation[w->id] << " " <<allocation[v->id] << " " << distance[w->id] << " " << result << std::endl;
 						result = distance[w->id];
 					}
 				}
@@ -85,6 +92,54 @@ int Profile::updateRadius(Node* v){
 		}
 	}
 	return result;
+}
+
+int Profile::objectiveSum(Graph* g){
+	int result = 0;
+	for (int i = 0; i < size; i++){
+		result += objective(g->nodes[i]);
+	}
+	return result;
+}
+
+//the objective function computes the number of different resources in the ball of size r_i around node v
+int Profile::objective(Node* v){
+	int r = radius[v->id];
+	std::list<Node*> q; //bfs queue
+	std::vector<int> distance(size);
+	std::vector<bool> visited(size);
+	for (int i = 0; i < size; i++){
+		visited[i] = false;
+		distance[i] = std::numeric_limits<int>::max();
+	}
+	distance[v->id] = 0;
+	visited[v->id] = true;
+	q.push_back(v);
+	bool ball_covered = false; 
+	while(!ball_covered & !q.empty()){
+		auto u = q.front(); q.pop_front();
+		for (int i = 0; i<u->adjacencyList.size(); i++){
+			auto w = u->adjacencyList[i];
+			if (!visited[w->id]){			
+				if (distance[w->id] > distance[u->id] + 1){
+					distance[w->id] = distance[u->id] + 1;
+				}			
+				if (distance[w->id] > r){
+					ball_covered = true;
+				}
+				visited[w->id] = true;
+				q.push_back(w);
+			}
+		}
+	}
+
+	int ball = 0;
+	for (int i = 0; i < size; i++){
+		if (visited[i]){
+			ball++;
+		}
+	}
+	return ball;
 }
 
 // computes the sum cost for the player v
