@@ -14,6 +14,9 @@ public:
     std::vector<int> allocation; 
 	//radius for each player: distance between node i and the nearest node other that i holding the same resource
 	std::vector<int> radius;
+    //determines the number of resources around the neighborhood of size radius(i) of each node i
+    std::vector<int> saturation;
+    
     std::mt19937 rng;
 
     Profile(int size, int resources);
@@ -25,4 +28,7 @@ public:
 	int updateRadius(Node* v);
 	int objective(Node* v);
 	int objectiveSum(Graph* g);
+    
+    int updateSaturation(Graph* g);
+    int updateSaturation(Node* v);
 };

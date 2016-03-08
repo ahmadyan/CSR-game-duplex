@@ -15,6 +15,9 @@ int main(int argc, const char * argv[]) {
 	p->generateRandomProfile();
 	int c0 = p->cost(g->nodes[g->nodes.size() - 1]);
 	p->updateRadius(g);
+    p->updateSaturation(g);
+    cout << " ##############" << endl ;
+
 	cout << "cost=" << c0 << endl;
 	cout << g->toString() << endl;
 	cout << "-------------------" << endl;
@@ -38,6 +41,7 @@ int main(int argc, const char * argv[]) {
 		int o = p->objectiveSum(g);
 		if (o>max) max = o ;
 		cout << o << endl;
+        p->updateSaturation(g);
 	}
 	cout << "Maximum Objective= " << max << endl;
 	system("PAUSE");

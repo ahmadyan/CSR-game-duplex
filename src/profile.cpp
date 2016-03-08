@@ -15,6 +15,7 @@ Profile::Profile(int s, int r){
     resources=r;
     allocation = std::vector<int>(size);
 	radius = std::vector<int>(size);
+    saturation = std::vector<int>(size);
     std::array<int, 624> seed_data;
     std::random_device random_device;
     std::generate_n(seed_data.data(), seed_data.size(), std::ref(random_device));
@@ -51,11 +52,59 @@ std::string Profile::toString(){
     return ss.str();
 }
 
+int Profile::updateSaturation(Graph* g){
+    auto unsaturatedNeighbors=0;
+    for (auto i = 0; i < size; i++){
+        saturation[i] = updateSaturation(g->nodes[i]);
+        if(saturation[i]<=sqrt(resources))
+            unsaturatedNeighbors++;
+    }
+    std::cout << " UNSATURATED NEIGHBORS = " << unsaturatedNeighbors << std::endl ;
+    return unsaturatedNeighbors;
+}
+
+int Profile::updateSaturation(Node* v){
+    auto r = radius[v->id];
+    std::list<Node*> q; //bfs queue
+    std::vector<int> distance(size);
+    std::vector<bool> visited(size);
+    std::vector<int> visitedResources(resources);
+    
+    for (int i = 0; i < size; i++){
+        visited[i] = false;
+        distance[i] = std::numeric_limits<int>::max();
+    }
+    for(int i=0;i<resources;i++){
+        visitedResources[i]=0;
+    }
+    distance[v->id] = 0;
+    visited[v->id] = true;
+    q.push_back(v);
+
+    while (!q.empty()){
+        auto u = q.front(); q.pop_front();
+        for (int i = 0; i<u->adjacencyList.size(); i++){
+            auto w = u->adjacencyList[i];
+            if (!visited[w->id]){
+                if (distance[w->id] > distance[u->id] + 1){
+                    distance[w->id] = distance[u->id] + 1;
+                }
+                visited[w->id] = true;
+                if(distance[w->id] < r){
+                    q.push_back(w);
+                    visitedResources[allocation[w->id]]=1;
+                }
+            }
+        }
+    }
+    return std::accumulate(visitedResources.begin(), visitedResources.end(), 0);
+}
+
 int Profile::updateRadius(Graph* g){
-	for (int i = 0; i < size; i++){
-		radius[i] = updateRadius(g->nodes[i]);
-	}
-	return 0;
+    for (int i = 0; i < size; i++){
+        radius[i] = updateRadius(g->nodes[i]);
+    }
+    return 0;
 }
 
 //Find the closest node to node v that has the same allocation as v
