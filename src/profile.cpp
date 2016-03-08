@@ -72,7 +72,6 @@ int Profile::updateSaturation(Graph* g){
         if(saturation[i]<=sqrt(resources))
             unsaturatedNeighbors++;
     }
-    std::cout << " UNSATURATED NEIGHBORS = " << unsaturatedNeighbors << std::endl ;
     return unsaturatedNeighbors;
 }
 
@@ -257,4 +256,12 @@ int Profile::cost(Node* v){
     //}
     int result = std::accumulate(mininimumResourceDistance.begin(), mininimumResourceDistance.end(), 0);
     return result;
+}
+
+// randomly changes the resource stored on node v
+void Profile::flip(Graph* g, Node* v){
+    std::uniform_int_distribution<uint32_t> uint_dist;
+    allocation[v->id] = uint_dist(rng)%resources;
+    updateRadius(g);
+    updateSaturation(g);
 }

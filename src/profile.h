@@ -32,4 +32,6 @@ public:
     
     int updateSaturation(Graph* g);
     int updateSaturation(Node* v);
+    
+    void flip(Graph* g, Node* v);
 };

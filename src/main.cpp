@@ -36,12 +36,15 @@ int main(int argc, const char * argv[]) {
 	cout << p->objectiveSum(g) << endl;
 	int max = -1;
 	for (int i = 0; i < 100; i++){
-		p->generateRandomProfile();
-		p->updateRadius(g);
+        p->flip(g, g->nodes[i%playerSize]);
+        p->updateRadius(g);
+        cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
+		//p->generateRandomProfile();
+		//p->updateRadius(g);
 		int o = p->objectiveSum(g);
 		if (o>max) max = o ;
 		cout << o << endl;
-        p->updateSaturation(g);
+        //p->updateSaturation(g);
 	}
 	cout << "Maximum Objective= " << max << endl;
 	system("PAUSE");
