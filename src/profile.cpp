@@ -23,6 +23,19 @@ Profile::Profile(int s, int r){
     rng.seed(seq);
 }
 
+Profile::Profile(Profile* copy){
+    size=copy->size;
+    resources=copy->resources;
+    allocation = std::vector<int>(copy->allocation);
+    radius = std::vector<int>(copy->radius);
+    saturation = std::vector<int>(copy->saturation);
+    std::array<int, 624> seed_data;
+    std::random_device random_device;
+    std::generate_n(seed_data.data(), seed_data.size(), std::ref(random_device));
+    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+    rng.seed(seq);
+}
+
 Profile::~Profile(){
 }
 

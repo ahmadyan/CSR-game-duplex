@@ -20,6 +20,7 @@ public:
     std::mt19937 rng;
 
     Profile(int size, int resources);
+    Profile(Profile* copy);
     ~Profile();
     std::string toString();
     int cost(Node*);
