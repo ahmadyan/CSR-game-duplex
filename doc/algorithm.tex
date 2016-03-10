@@ -1,1 +1,38 @@
 \section{Random Tree Search Algorithm for Finding NE}\label{sec:apx-alg}
+We use random tree search to find the optimum allocation in the CSR game.
+
+
+%Random tree setup
+
+
+%Random tree figure
+
+
+The random tree search algorithm has two phases:
+\begin{enumerate}
+  \item \emph{Warmup Phase:} Similar to other stochastic search algorithms, the runtime for random tree search depends on the choice of the initial allocation profile. In order to reduce the variance in search, the random tree starts the search by generating multiple randomized allocation as initial states. We emprically observed spending $5\%$ of total samples on finding good initial allocation can substantially reduce overall runtime. The random tree stores the 20 best initial allocation (sorted according to our cost function) and ignores the rest.
+  \item \emph{Search Phase:} During the search phase, the random tree picks an allocation from the buffer, changes the resource of one player in the allocation and re-evaluates the radius and number of saturated players in the game. If flipping that node improved the allocation, we insert the new allocation back to the buffer, Otherwise we ignore this step and continue.
+\end{enumerate}
+
+
+%experimental result
+
+We demonstrate the effectiveness and scalability of random tree search using simulation.
+We implemented the random tree search algorithm in C++\footnote{We open-sourced our tools and data and hosted them at \url{github.com/ahmadyan/Capacitated-Selfish-Replication-Game}} and ran our simulation on a Macbook pro laptop equipped with Core-i7 processor and 16gb of memory.
+
+We use a randomly generated Erdos-Renyi graph $G(n,p)$, where $n$ is the number of players and $p$ is the probability of existence of an edge between two player, as a case study. We ensured that the graph is connected. The CSR game is for $m$ number of resources in the graph $G$. We executed the random tree search algorithm to find the optimal allocation. The random tree would terminate when the cost function reaches it's maximum at $n\times m$. To ensure correctness, we assert the number of unsaturated neighborhoods in the graph $G$ to be zero at termination.
+
+Table \ref{tab:result1} shows the result of the random tree search algorithm for different case studies. Our algorithm quickly found the equilibrium point in all of our experiments.
+
+\begin{table}[]
+\centering
+\caption{Random tree search profile for different random graphs}
+\label{tab:result1}
+\begin{tabular}{lllll}
+n   & p    & m  & iterations & time (s) \\
+100 & 0.05 & 5  & 1453       & x        \\
+100 & 0.05 & 20 & 6028       & x        \\
+20  & 0.05 & 3  & 560        & x        \\
+20  & 0.5  & 10 & 1045       & x
+\end{tabular}
+\end{table}
