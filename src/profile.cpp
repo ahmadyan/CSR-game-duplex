@@ -160,7 +160,6 @@ int Profile::updateRadius(Node* v){
 				}
 				if (allocation[w->id] == allocation[v->id]){
 					if (distance[w->id] < result){
-						//std::cout << w->id << " " << v->id << " " << allocation[w->id] << " " <<allocation[v->id] << " " << distance[w->id] << " " << result << std::endl;
 						result = distance[w->id];
 					}
 				}
@@ -187,10 +186,16 @@ int Profile::objective(Node* v){
 	std::list<Node*> q; //bfs queue
 	std::vector<int> distance(size);
 	std::vector<bool> visited(size);
+    std::vector<int> visitedResources(resources);
+    
 	for (int i = 0; i < size; i++){
 		visited[i] = false;
 		distance[i] = std::numeric_limits<int>::max();
 	}
+    
+    for(int i=0;i<resources;i++){
+        visitedResources[i]=0;
+    }
 	distance[v->id] = 0;
 	visited[v->id] = true;
 	q.push_back(v);
@@ -205,20 +210,20 @@ int Profile::objective(Node* v){
 				}			
 				if (distance[w->id] > r){
 					ball_covered = true;
-				}
-				visited[w->id] = true;
-				q.push_back(w);
+                }else{
+                    visited[w->id] = true;
+                    q.push_back(w);
+                }
 			}
 		}
 	}
 
-	int ball = 0;
 	for (int i = 0; i < size; i++){
 		if (visited[i]){
-			ball++;
+            visitedResources[allocation[i]] = 1;
 		}
 	}
-	return ball;
+    return std::accumulate(visitedResources.begin(), visitedResources.end(), 0);
 }
 
 // computes the sum cost for the player v

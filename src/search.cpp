@@ -44,7 +44,6 @@ void Search::run(){
                 //p->generateRandomProfile();
                 p->flip(g, g->nodes[rand()%playerSize]);
             }
-
         }
 
         //int c0 = p->computeCost(g->nodes[g->nodes.size() - 1]);
@@ -54,6 +53,7 @@ void Search::run(){
 
 
         int o = p->objectiveSum(g);
+
         if (o>max) max = o ;
         db.push_back(p);
         push(p);
@@ -61,7 +61,7 @@ void Search::run(){
         //p->flip(g, g->nodes[i%playerSize]);
         //p->updateRadius(g);
         //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
-        if(s==0){
+        if(o==playerSize*resourceSize){
             cout << " Found equilibrium point after " << i << " iterations" << endl ;
             cout << " Maximum Objective= " << max << endl;
             cout << " Buffer ----------- " << endl ;
