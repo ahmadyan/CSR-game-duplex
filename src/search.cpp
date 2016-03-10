@@ -5,10 +5,7 @@
 #include <cmath>
 #include <string>
 #include <sstream>
-
-
 #include "search.h"
-
 
 template <class T, class S, class C>
 S& Container(priority_queue<T, S, C>& q) {
@@ -24,7 +21,7 @@ Search::Search(int ps, int rs, Graph* gg){
     playerSize = ps;
     resourceSize = rs;
     g=gg;
-    buffersize=50;
+    buffersize=10;
     buffer = Container(pq);
 }
 
@@ -32,57 +29,59 @@ Search::~Search(){
 }
 
 void Search::run(){
-    Profile* p = new Profile(playerSize, resourceSize);
-    p->generateRandomProfile();
-    int c0 = p->cost(g->nodes[g->nodes.size() - 1]);
-    p->updateRadius(g);
-    p->updateSaturation(g);
-    cout << " ##############" << endl ;
-    
-    cout << "cost=" << c0 << endl;
-    cout << g->toString() << endl;
-    cout << "-------------------" << endl;
-    for (int i = 0; i < playerSize; i++){
-        cout << "***" << p->updateRadius(g->nodes[i]) << endl;
-    }
-    cout << "*******************" << endl;
-    for (int i = 0; i < playerSize; i++){
-        cout << p->radius[i] << endl;
-    }
-    cout << "*******************" << endl;
-    for (int i = 0; i < playerSize; i++){
-        cout << p->objective(g->nodes[i]) << endl;
-    }
-    cout << "*******************" << endl;
-    cout << p->objectiveSum(g) << endl;
     int max = -1;
-    for (int i = 0; i < 100; i++){
-        p->flip(g, g->nodes[i%playerSize]);
+    int total_iteration = 10000;
+    int warmupPhase=total_iteration/20;
+    for (int i = 0; i < total_iteration; i++){
+        Profile* p;
+        if(i<warmupPhase){
+            p = new Profile(playerSize, resourceSize);
+            p->generateRandomProfile();
+        }else{
+            Profile* q = sample();
+            p = new Profile(q);
+            for(int j=0;j<1+0.1*total_iteration/i; j++){
+                //p->generateRandomProfile();
+                p->flip(g, g->nodes[rand()%playerSize]);
+            }
+
+        }
+
+        //int c0 = p->computeCost(g->nodes[g->nodes.size() - 1]);
         p->updateRadius(g);
-        cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
-        //p->generateRandomProfile();
-        //p->updateRadius(g);
+        int s = p->updateSaturation(g);
+
+
+
         int o = p->objectiveSum(g);
         if (o>max) max = o ;
-        cout << o << endl;
-        //p->updateSaturation(g);
+        db.push_back(p);
+        push(p);
+        cout << i << ", " << s << ", " << o<< endl ;
+        //p->flip(g, g->nodes[i%playerSize]);
+        //p->updateRadius(g);
+        //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
+        if(s==0){
+            cout << " Found equilibrium point after " << i << " iterations" << endl ;
+            cout << " Maximum Objective= " << max << endl;
+            cout << " Buffer ----------- " << endl ;
+
+            for(int i=0;i<buffersize;i++)
+                cout << get(i)->cost << endl ;
+            return;
+        }
     }
     cout << "Maximum Objective= " << max << endl;
     
-    for(int i=0;i<10000;i++){
-        push(rand()%1000);
-    }
-    
-    for(int i=0;i<20;i++)
-        cout << sample() << endl ;
+
 }
 
-void Search::push(int new_elem){
+void Search::push(Profile* new_elem){
     if(pq.size()<buffersize){
         pq.push(new_elem);
     }else{
-        auto max = pq.top();
-        if(new_elem<max){
+        auto min = pq.top();
+        if(new_elem->cost >min->cost){
             pq.pop();
             pq.push(new_elem);
         }
@@ -90,10 +89,10 @@ void Search::push(int new_elem){
     buffer = Container(pq);
 }
 
-int Search::get(int i){
+Profile* Search::get(int i){
     return buffer[i];
 }
 
-int Search::sample(){
+Profile* Search::sample(){
     return buffer[rand()%buffer.size()];
 }

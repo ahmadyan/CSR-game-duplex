@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 	Graph* g = new Graph();
-	int playerSize = 20;
+	int playerSize = 100;
 	int graphConnectivityFactor = 2;
 	int resourceSize = 5;
 	//g->generateRandomGraph(playerSize, graphConnectivityFactor);

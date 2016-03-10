@@ -11,6 +11,7 @@
 #include <numeric>
 
 Profile::Profile(int s, int r){
+    cost=-1;
     size=s;
     resources=r;
     allocation = std::vector<int>(size);
@@ -24,20 +25,36 @@ Profile::Profile(int s, int r){
 }
 
 Profile::Profile(Profile* copy){
+    cost = copy->cost;
     size=copy->size;
     resources=copy->resources;
-    allocation = std::vector<int>(copy->allocation);
-    radius = std::vector<int>(copy->radius);
-    saturation = std::vector<int>(copy->saturation);
+    allocation = std::vector<int>(size);
+    radius = std::vector<int>(size);
+    saturation = std::vector<int>(size);
+    //allocation = std::vector<int>(copy->allocation);
+    //radius = std::vector<int>(copy->radius);
+    //saturation = std::vector<int>(copy->saturation);
     std::array<int, 624> seed_data;
     std::random_device random_device;
     std::generate_n(seed_data.data(), seed_data.size(), std::ref(random_device));
     std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
     rng.seed(seq);
+    for(int i=0;i<size;i++){
+        allocation[i] = copy->allocation[i];
+        radius[i] = copy->radius[i];
+        saturation[i] = copy->saturation[i];
+    }
 }
 
 Profile::~Profile(){
 }
+
+bool Profile::operator<(const Profile& right) const{
+    std::cout << cost << " " << right.cost << std::endl ;
+
+    return cost < right.cost;
+}
+
 
 void Profile::generateRandomProfile(){
     std::uniform_int_distribution<uint32_t> uint_dist;
@@ -160,6 +177,7 @@ int Profile::objectiveSum(Graph* g){
 	for (int i = 0; i < size; i++){
 		result += objective(g->nodes[i]);
 	}
+    cost=result;
 	return result;
 }
 
@@ -207,7 +225,7 @@ int Profile::objective(Node* v){
 // To compute the sum cost, we execute breath-first search from node v
 // along the path, whenever we see a resource, we update it's cost (the distance from node v)
 // we continue until we have visited all resources or we finish the graph
-int Profile::cost(Node* v){
+int Profile::computeCost(Node* v){
     std::list<Node*> q; //bfs queue
     std::vector<bool> visited(size);
     std::vector<int> distance(size);

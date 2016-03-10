@@ -15,13 +15,18 @@ class Search{
     Graph* g;
     
     int buffersize;
-    priority_queue<int, vector<int>, less<int> > pq;
-    vector<int> buffer;
+    //priority_queue<int, vector<int>, less<int> > pq;
+    //vector<int> buffer;
+    priority_queue<Profile*, vector<Profile*>, profileGreaterComparator > pq;
+    vector<Profile*> buffer;
+    
+    vector<Profile*> db;
 public:
+    
     Search(int, int, Graph*);
     ~Search();
     void run();
-    void push(int);
-    int sample();
-    int get(int);
+    void push(Profile*);
+    Profile* sample();
+    Profile* get(int);
 };

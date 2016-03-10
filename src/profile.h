@@ -1,5 +1,6 @@
 #pragma once
 #include <random>
+#include <iostream>
 #include <string>
 #include <vector>
 #include "node.h"
@@ -16,14 +17,17 @@ public:
 	std::vector<int> radius;
     //determines the number of resources around the neighborhood of size radius(i) of each node i
     std::vector<int> saturation;
+    int cost;
     
     std::mt19937 rng;
 
     Profile(int size, int resources);
     Profile(Profile* copy);
     ~Profile();
+    bool operator<(const Profile&) const; 
+    
     std::string toString();
-    int cost(Node*);
+    int computeCost(Node*);
     void generateRandomProfile();
 	int updateRadius(Graph* g);
 	int updateRadius(Node* v);
@@ -34,4 +38,17 @@ public:
     int updateSaturation(Node* v);
     
     void flip(Graph* g, Node* v);
+};
+
+
+class profileGreaterComparator{
+    public: bool operator()(const Profile* lhs, const Profile* rhs) const{
+        return lhs->cost > rhs->cost;
+    }
+};
+
+class profileLesserComparator{
+public: bool operator()(const Profile* lhs, const Profile* rhs) const{
+    return lhs->cost < rhs->cost;
+}
 };
