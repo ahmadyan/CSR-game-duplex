@@ -1,44 +1,52 @@
-
 \section{Characterization of NE v.s Randomization}\label{sec:main-I}
 
-In this section we first characterize the equilibrium points of the CSR game as maximizers of a proper function. Although this function is not monotone along the trajectories of the best response dynamics, however, it is very useful in a sense that it can improve at most linearly many steps because it admits at most linearly many discrete values. The explicit form of this function and some of its properties has been given in the following lemma:
 
-\smallskip
+In this section we first characterize the equilibrium points of the CSR game as maximizers of a proper function. Although this function is not monotone along the trajectories of the best response dynamics, however, it is very useful in a sense that it can improve at most linearly many steps because it admits at most linearly many discrete values. The explicit form of this function and some of its properties has been given in Lemma \ref{lem:NE-characterization}. But before we proceed we state the following useful definition.
+
+\begin{definition}\label{def:radius}
+Given an allocation profile $P$ we define the \textit{radius} of agent $i$, denoted by $r_i(P)$, to be the distance between node $i$ and the nearest node other than her holding the same resource as $i$, i.e., $r_i(P)=\min_{ j\neq i, P_j=P_i}d_{\mathcal{G}}(i,j)$. Note that if there does not exist such a node, by convention we define $r_i(P)=n$. We suppress the dependence of $r_i(P)$ on $P$ whenever there is no ambiguity.
+\end{definition}
+
+
 \begin{lemma}\label{lem:NE-characterization}
-Let $r_i$ be the radius of agent $i$ in an allocation profile $P$, and define $M_i(P)$ to be number of different resources in $B_{\mathcal{G}}(i,r_i)$. Then the function $f(\cdot):\mathcal{P}\rightarrow \mathbbm{R}$ defined by $f(P)=\sum_{i=1}^{n}M_i(P)$ achieves its maximum if and only if $P$ is an equilibrium of the CSR game.
-\end{lemma}
+For an allocation profile $P$, let $M_i(P)$ be number of different resources in $B_{\mathcal{G}}(i,r_i(P))$. Then the function $f(\cdot):\mathcal{P}\rightarrow \mathbbm{R}$ defined by $f(P)=\sum_{i=1}^{n}M_i(P)$ achieves its maximum if and only if $P$ is an Nash equilibrium equilibrium of the CSR game. 
+\end{lemma} 
 \begin{proof}
-For an arbitrary equilibrium $P^*$ and a specific node $i$ with equilibrium radius $r^*_i$, i.e., $r^*_i=d_{\mathcal{G}}(i,\sigma_i(P^*,P^*_i))$, we note that all the resources must appear at least once in $B_{\mathcal{G}}(i,r^*_i)$. In fact, if a specific resource is missing in $B_{\mathcal{G}}(i,r^*_i)$, then node $i$ can increase its radius by updating its current resource to that specific resource, thereby decreasing its cost (Remark \ref{rem:cost-to-radius}). But this is in contradiction with $P^*$ being an equilibrium. Therefore, for every player $i$ all the resources must appear at least once in $B_{\mathcal{G}}(i,r_i)$, and hence $M_i(P^*)=|O|, \forall i\in [n]$. Therefore, $f(P^*)=n|O|$, which is the maximum possible value that could be taken by $f(\cdot)$ (note that in general we have  $M_i(\cdot)\leq |O|, \forall i$). On the other hand, by Theorem \ref{thm:existence-NE} we know that the CSR game always admits a pure NE, and thus $\max_{P\in \mathcal{P}}f(P)=n|O|$. Therefore, if for some allocation profile we have $f(P)=n|O|$, this implies that $M_i(P)=|O|, \forall i\in [n]$, i.e., for every $i\in [n]$, all the resources appear at least once in $B_{\mathcal{G}}(i,r_i)$, which means that $P$ must be an equilibrium since no agent can increase its radius even further.
+First we note that for any two allocation profiles $P$ and $\bar{P}$ which only differ in the $i$th coordinate, using \eqref{eq:CSR-cost-formulation} and the definition of the radius (Definition \ref{def:radius}), one can easily see that $C_i(P)-C_i(\bar{P})=r_i(\bar{P})-r_i(P)$. This establishes an equivalence between decrease in cost and increase in radius for player $i$, when the actions of the other players are fixed. Next, let us consider an arbitrary equilibrium $P^*$ profile and a specific node $i$ with equilibrium radius $r^*_i$, i.e., $r^*_i=d_{\mathcal{G}}(i,\sigma_i(P^*,P^*_i))$. We claim that all the resources must appear at least once in $B_{\mathcal{G}}(i,r^*_i)$. In fact, if a specific resource is missing in $B_{\mathcal{G}}(i,r^*_i)$, then node $i$ can increase its radius by updating its current resource to that specific resource, thereby decreasing its cost. But this is in contradiction with $P^*$ being an equilibrium. Therefore, for every player $i$ all the resources must appear at least once in $B_{\mathcal{G}}(i,r_i)$, and hence $M_i(P^*)=|O|, \forall i\in [n]$. This shows that $f(P^*)=n|O|$, which is the maximum possible value that could be taken by $f(\cdot)$ (note that in general we have  $M_i(\cdot)\leq |O|, \forall i$). On the other hand, by Theorem \ref{thm:existence-NE} we know that the CSR game always admits a pure-strategy Nash equilibrium, and thus $\max_{P\in \mathcal{P}}f(P)=n|O|$. Therefore, if for some allocation profile we have $f(P)=n|O|$, this implies that $M_i(P)=|O|, \forall i\in [n]$, i.e., for every $i\in [n]$, all the resources appear at least once in $B_{\mathcal{G}}(i,r_i)$, which means that $P$ must be an equilibrium since no agent can increase its radius (or equivalently reduce its cost) even further.  
 \end{proof}
 
 \smallskip
-Using Lemma \ref{lem:NE-characterization}, the problem of finding NE of the system reduces to finding the maximizers of the function $f(\cdot)$. In other words, if we have an efficient algorithm which can find the global maximum of $f(\cdot)$, then we will be able to find the equilibrium points of the system efficiently. Note that here $f(\cdot)$ is not a potential function of the game, however, it can be used to drive the search process to an equilibrium. In the following theorem we show that randomization can be quite useful for maximizing such function when the players' neighborhoods are not saturated with many resources.
+Using Lemma \ref{lem:NE-characterization}, the problem of finding NE of the system reduces to finding the maximizers of the function $f(\cdot)$. In other words, if we have an efficient algorithm which can find the global maximum of $f(\cdot)$, then we will be able to find the equilibrium points of the system efficiently. Note that here $f(\cdot)$ is not a potential function of the game, however, it can be used to drive the search process to an equilibrium. In the following theorem we show that randomization can be quite useful for maximizing such function when the players' neighborhoods are not saturated with many resources. 
 
 \smallskip
 \begin{theorem}\label{thm:randomization}
-Given a profile of resources at time $t$, as long as the neighborhood of players are not saturated by more than $\sqrt{|O|}$ resources, i.e., $M_i(t)\leq \sqrt{|O|}, \forall i$, then there exists a resource such that if a player $i$ updates to that specific resource, the value of function $f$ strictly increases.
+Given a profile of resources at time $t$, as long as the neighborhood of players are not saturated by more than $\sqrt{d_{min}|O|}$ resources, i.e., $M_i(t)\leq \sqrt{d_{min}|O|}, \forall i$, then there exists a resource such that if a player $i$ updates to that specific resource, the value of function $f$ strictly increases.
 \end{theorem}
-\begin{proof}
-Let us consider an arbitrary player $i$ such that $M_i(t)\leq \sqrt{|O|}$, and let him uniformly and independently update to one of the possible $|O|$ resources, each with probability $\frac{1}{|O|}$. We compute the expected amount of $\mathbb{E}[f(t+1)]$. For this purpose we first consider the expected change in $\mathbb{E}[M_i(t+1)]$:
+\begin{proof}  
+Let us consider an arbitrary player $i$ such that $M_i(t)\leq \sqrt{|O|}$, and let him uniformly and independently update to one of the possible $|O|$ resources, each with probability $\frac{1}{|O|}$. We compute the expected amount of $\mathbb{E}[f(t+1)]$. For this purpose we first consider the expected change in $\mathbb{E}[M_i(t+1)]$:  
 \begin{align}\nonumber
-\mathbb{E}[M_i(t+1)]&\ge \frac{M_i(t)}{|O|}+\frac{M_i(t)-1}{|O|}\times 1\cr
-&\qquad+\frac{|O|-M_i(t)}{|O|}\times (M_i(t)+1),
+\mathbb{E}[M_i(t+1)]&\ge \frac{M_i(t)}{|O|}+\frac{M_i(t)-1}{|O|}\times 1\cr 
+&\qquad+\frac{|O|-M_i(t)}{|O|}\times (M_i(t)+1)\cr 
+&=1+M_i(t)-\frac{M_i(t)^2+1-M_i(t)}{|O|},
 \end{align}
-where the first term in the above expression is the probability that the resource at time $t+1$ remains the same as that at time $t$, the second term is a lower bound for the case where the resource at time $t+1$ changes to one of the different $M_i(t)-1$ resources in $B(i,r_i(t))$, and finally the last term is a lower bound for the case where the resource at node $i$ changes uniformly to one of the possible $|O|-M_i(t)$ which did not appear in $B(i,r_i(t))$.
+where the first term in the above inequality is the probability that the resource at time $t+1$ remains the same as that at time $t$, the second term is a lower bound for the case where the resource at time $t+1$ changes to one of the different $M_i(t)-1$ resources in $B(i,r_i(t))$, and finally the last term is a lower bound for the case where the resource at node $i$ changes uniformly to one of the possible $|O|-M_i(t)$ which did not appear in $B(i,r_i(t))$.
 
 Next for any other node $j$ such that $i\in B(j, r_j(t)), j\neq i$ we can write
 \begin{align}\nonumber
-\mathbb{E}[M_j(t+1)]&\ge \frac{1}{|O|}\times 1+\frac{M_j(t)-1}{|O|}\times M_j(t)\cr
-&\qquad+\frac{|O|-M_j(t)}{|O|}\times (M_j(t)+1),
+\mathbb{E}[M_j(t+1)]&\ge \frac{1}{|O|}\times 1+\frac{M_j(t)-1}{|O|}\times M_j(t)\cr 
+&\qquad+\frac{|O|-M_j(t)}{|O|}\times (M_j(t)+1)\cr
+&=\frac{|O|+1-2M_j(t)}{|O|}+M_j(t),
 \end{align}
-where the first term is a lower bound for the case where node $i$ attains exactly the same resource as node $i$ in the next time step, the second term upper bounds the case where node $i$ updates to one of the possible $M_j(t)-1$ other than $P_j(t)$ which appeared in $B(j, r_j(t))$, and the last term lower bounds the case where node $i$ changes to one of the possible $|O|-M_j(t)$ which did not appear in $B(j, r_j(t))$. Note that for any other node $j$ which is not included in the above two cases we have $M_j(t+1)=M_j(t)$ (since they are not influenced by the random assignment of player $i$). Therefore, we can write
+where the first term in the above inequality is a lower bound for the case where node $i$ attains exactly the same resource as node $i$ in the next time step, the second is for the case where node $i$ updates to one of the possible $M_j(t)-1$ resources other than $P_j(t)$ which appeared in $B(j, r_j(t))$, and the last term captures the case where node $i$ changes to one of the possible $|O|-M_j(t)$ which did not appear in $B(j, r_j(t))$. Note that for any other node $j$ which is not included in the above two cases we have $M_j(t+1)=M_j(t)$ (since they are not influenced by the random assignment of player $i$). Therefore, we can write
 \begin{align}\nonumber
-&\mathbb{E}[f(t+1)-f(t)]=\mathbb{E}[M_i(t+1)-M_i(t)]\cr
-&\qquad\qquad\qquad+\!\!\!\!\!\sum_{j: i\in B(j, r_j(t))}\!\!\!\!\!\mathbb{E}[M_j(t+1)-M_j(t)]\cr
-&\qquad\ge 1-\left(\frac{M_i^2+1-M_i}{|O|}\right)+\!\!\!\!\!\sum_{j: i\in B(j, r_j(t))}\!\!\!\!\!\left(\frac{|O|+1-2M_j(t)}{|O|}\right)\cr
-&\qquad\ge 1-\left(\frac{M_i^2+1-M_i}{|O|}\right) >0,
+&\mathbb{E}[f(t+1)-f(t)]=\mathbb{E}[M_i(t+1)-M_i(t)]\cr 
+&\qquad+\!\!\!\!\!\sum_{j: i\in B(j, r_j(t))}\!\!\!\!\!\mathbb{E}[M_j(t+1)-M_j(t)]\cr 
+&\ge 1-\frac{M_i^2(t)+1-M_i(t)}{|O|}+\!\!\!\!\!\sum_{j: i\in B(j, r_j(t))}\!\!\!\!\!\frac{|O|+1-2M_j(t)}{|O|}\cr 
+&\ge 1-\frac{M_i^2(t)+1-M_i(t)}{|O|}+d_{min}\frac{|O|+1-2M_j(t)}{|O|}\cr 
+&\ge 1-\frac{d_{min}|O|+1-\sqrt{d_{min}|O|}}{|O|}+d_{min}\frac{|O|+1-2\sqrt{d_{min}|O|}}{|O|}\cr 
+&> 0,
 \end{align}
-where the last two inequalities is due to the fact that $M_i(t)\leq \sqrt{|O|}, \forall i$. Therefore, we have shown that $\mathbbm{E}[f(t+1)-f(t)]>0$ which implies that there exists a resource $o$ such that player $i$ can update to it and strictly improve the value of the function $f(\cdot)$. In fact, such a choice of resource can be exhaustively found by trying all the possible $|O|$ resources for node $i$, which takes at most $n|O|^{\frac{3}{2}}$ iterations until the algorithm finds a profile of resources whose objective function $f$ is at least $n\sqrt{|O|}$.
+where the last two inequalities is due to the fact that $M_i(t)\leq \sqrt{|O|}, \forall i$. Therefore, we have shown that $\mathbbm{E}[f(t+1)-f(t)]>0$ which implies that there exists a resource $o$ such that player $i$ can update to it and strictly improve the value of the function $f(\cdot)$. In fact, such a choice of resource can be exhaustively found by trying all the possible $|O|$ resources for node $i$.
 \end{proof}
 
-In fact, Theorem \ref{thm:randomization} guarantees a good improvement in the value of the objective function $f$ as long as there are not too many resources around each player. However, when the system gets closer to its equilibrium points, the speed of progress can be much slower, or there may exist a possibility where the objective function gets stuck in one of its local maximums. To circumvent this issue, we introduce a random tree based search algorithm such that with non vanishing probability the algorithm can always escape from the local maximums, and hence steer the search toward global maximum of the objective function.
+In fact, Theorem \ref{thm:randomization} guarantees a good improvement in the value of the objective function $f$ as long as there are not too many resources around each player. However, when the system gets closer to its equilibrium points, the speed of progress can be much slower, or there may exist a possibility where the objective function gets stuck in one of its local maximums. To circumvent this issue, we introduce a random tree based search algorithm such that with non vanishing probability the algorithm can always escape from the local maximums, and hence steer the search toward global maximum of the objective function. 
