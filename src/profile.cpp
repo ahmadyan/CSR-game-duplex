@@ -86,8 +86,14 @@ int Profile::updateSaturation(Graph* g){
     auto unsaturatedNeighbors=0;
     for (auto i = 0; i < size; i++){
         saturation[i] = updateSaturation(g->nodes[i]);
-        if(saturation[i]<=sqrt(resources))
+        if(saturation[i]!=resources){
             unsaturatedNeighbors++;
+         //   std::cout << "* " << saturation[i] << " " << resources << std::endl ;
+
+        }
+        
+        //if(saturation[i]<=sqrt(resources))
+        //    unsaturatedNeighbors++;
     }
     return unsaturatedNeighbors;
 }
@@ -109,8 +115,9 @@ int Profile::updateSaturation(Node* v){
     distance[v->id] = 0;
     visited[v->id] = true;
     q.push_back(v);
-
-    while (!q.empty()){
+    
+    bool ball_covered = false;
+    while(!ball_covered & !q.empty()){
         auto u = q.front(); q.pop_front();
         for (int i = 0; i<u->adjacencyList.size(); i++){
             auto w = u->adjacencyList[i];
@@ -118,10 +125,12 @@ int Profile::updateSaturation(Node* v){
                 if (distance[w->id] > distance[u->id] + 1){
                     distance[w->id] = distance[u->id] + 1;
                 }
-                visited[w->id] = true;
-                if(distance[w->id] < r){
-                    q.push_back(w);
+                if (distance[w->id] > r){
+                    ball_covered = true;
+                }else{
                     visitedResources[allocation[w->id]]=1;
+                    visited[w->id] = true;
+                    q.push_back(w);
                 }
             }
         }

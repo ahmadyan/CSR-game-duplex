@@ -33,6 +33,7 @@ void Search::run(){
     int total_iteration = 10000;
     int warmupPhase=total_iteration/20;
     for (int i = 0; i < total_iteration; i++){
+        buffersize = 20 + log(i);
         Profile* p;
         if(i<warmupPhase){
             p = new Profile(playerSize, resourceSize);
