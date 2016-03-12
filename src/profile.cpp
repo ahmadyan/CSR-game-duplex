@@ -8,6 +8,7 @@
 #include <set>
 #include <list>
 #include <cstdint>
+#include <cmath>
 #include <numeric>
 
 Profile::Profile(int s, int r){
@@ -183,7 +184,8 @@ int Profile::updateRadius(Node* v){
 int Profile::objectiveSum(Graph* g){
 	int result = 0;
 	for (int i = 0; i < size; i++){
-		result += objective(g->nodes[i]);
+        auto obj = objective(g->nodes[i]);
+        result += obj; //(obj * log(obj));
 	}
     cost=result;
 	return result;

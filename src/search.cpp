@@ -23,6 +23,7 @@ Search::Search(int ps, int rs, Graph* gg){
     g=gg;
     buffersize=10;
     buffer = Container(pq);
+    iterations=0;
 }
 
 Search::~Search(){
@@ -69,6 +70,7 @@ void Search::run(){
 
             for(int i=0;i<buffersize;i++)
                 cout << get(i)->cost << endl ;
+            iterations=i;
             return;
         }
     }
@@ -96,4 +98,8 @@ Profile* Search::get(int i){
 
 Profile* Search::sample(){
     return buffer[rand()%buffer.size()];
+}
+
+int Search::getStat(){
+    return iterations;
 }
