@@ -51,15 +51,12 @@ void Search::run(){
         //int c0 = p->computeCost(g->nodes[g->nodes.size() - 1]);
         p->updateRadius(g);
         int s = p->updateSaturation(g);
-
-
-
         int o = p->objectiveSum(g);
 
         if (o>max) max = o ;
         db.push_back(p);
         push(p);
-        cout << i << ", " << s << ", " << o<< endl ;
+        //cout << i << ", " << s << ", " << o<< endl ;
         //p->flip(g, g->nodes[i%playerSize]);
         //p->updateRadius(g);
         //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
@@ -68,8 +65,8 @@ void Search::run(){
             cout << " Maximum Objective= " << max << endl;
             cout << " Buffer ----------- " << endl ;
 
-            for(int i=0;i<buffersize;i++)
-                cout << get(i)->cost << endl ;
+            //for(int i=0;i<buffersize;i++)
+            //    cout << get(i)->cost << endl ;
             iterations=i;
             return;
         }

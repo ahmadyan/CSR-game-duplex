@@ -5,6 +5,7 @@
 #include <boost/accumulators/statistics/count.hpp>
 #include <boost/accumulators/statistics/mean.hpp>
 #include <boost/accumulators/statistics/moment.hpp>
+#include <chrono>
 #include "graph.h"
 #include "profile.h"
 #include "search.h"
@@ -20,25 +21,26 @@ int main(int argc, const char * argv[]) {
 	int playerSize = 20;
 	int graphConnectivityFactor = 3 ;
 	int resourceSize = 10;
+    std::chrono::milliseconds duration;
+    duration.zero();
     for(int i=0;i<runs;i++){
         Graph* g = new Graph();
         //g->generateRandomGraph(playerSize, graphConnectivityFactor);
         g->generateErdosRenyiRandomGraph(playerSize, 0.4);
         Search* search = new Search(playerSize, resourceSize, g);
-        //search->run();
+        auto start = std::chrono::system_clock::now();
         search->run();
+        duration += std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start);
         acc(search->getStat());
         delete search;
         delete g;
-        
     }
-    
-    cout << "Count : " << boost::accumulators::count(acc) << endl;
-    cout<< "Mean  :  "<< mean(acc) << endl;
+    duration /= runs;
+    cout << " Average simulation time = " << duration.count() << "ms" << endl ;
+    cout << " Count : " << boost::accumulators::count(acc) << endl;
+    cout<< " Mean  :  "<< mean(acc) << endl;
     //cout<<"moment : "<<moment<2>(acc)<<endl;
-    cout<<"deviation : "<< sqrt(variance(acc)) << endl;
-
-    
+    cout<<" deviation : "<< sqrt(variance(acc)) << endl;
     system("PAUSE");
     return 0;
 }
