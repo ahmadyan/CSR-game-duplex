@@ -44,7 +44,13 @@ void Search::run(){
             p = new Profile(q);
             for(int j=0;j<1+0.1*total_iteration/i; j++){
                 //p->generateRandomProfile();
-                p->flip(g, g->nodes[rand()%playerSize]);
+                if(rand()%100 < 5){
+                    //let the algorithm intentionally make mistakes
+                    p->flip(g, g->nodes[rand()%playerSize]);
+                }else{
+                    //choose the next player in a greedy fashion
+                    p->flip(g, g->nodes[q->sampleUnsatisfiedPlayer()]);
+                }
             }
         }
 
@@ -56,7 +62,7 @@ void Search::run(){
         if (o>max) max = o ;
         db.push_back(p);
         push(p);
-        //cout << i << ", " << s << ", " << o<< endl ;
+        cout << i << ", " << s << ", " << o<< endl ;
         //p->flip(g, g->nodes[i%playerSize]);
         //p->updateRadius(g);
         //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;

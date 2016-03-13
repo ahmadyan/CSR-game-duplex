@@ -17,6 +17,8 @@ public:
 	std::vector<int> radius;
     //determines the number of resources around the neighborhood of size radius(i) of each node i
     std::vector<int> saturation;
+    //list of all the players that have unsatisfied neighbors in this allocation
+    std::vector<int> unsatisfiedPlayers;
     int cost;
     
     std::mt19937 rng;
@@ -38,6 +40,7 @@ public:
     int updateSaturation(Node* v);
     
     void flip(Graph* g, Node* v);
+    int sampleUnsatisfiedPlayer();
 };
 
 

@@ -16,9 +16,9 @@ using namespace  boost::accumulators;
 int main(int argc, const char * argv[]) {
     accumulator_set<double, stats<tag::variance> > acc;
     accumulator_set<double, stats<tag::variance> > acc2;
-    int runs=10;
+    int runs=1;
 
-	int playerSize = 20;
+	int playerSize = 100;
 	int graphConnectivityFactor = 3 ;
 	int resourceSize = 10;
     std::chrono::milliseconds duration;
@@ -26,7 +26,7 @@ int main(int argc, const char * argv[]) {
     for(int i=0;i<runs;i++){
         Graph* g = new Graph();
         //g->generateRandomGraph(playerSize, graphConnectivityFactor);
-        g->generateErdosRenyiRandomGraph(playerSize, 0.4);
+        g->generateErdosRenyiRandomGraph(playerSize, 0.05);
         Search* search = new Search(playerSize, resourceSize, g);
         auto start = std::chrono::system_clock::now();
         search->run();

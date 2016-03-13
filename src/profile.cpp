@@ -89,8 +89,8 @@ int Profile::updateSaturation(Graph* g){
         saturation[i] = updateSaturation(g->nodes[i]);
         if(saturation[i]!=resources){
             unsaturatedNeighbors++;
+            unsatisfiedPlayers.push_back(i);
          //   std::cout << "* " << saturation[i] << " " << resources << std::endl ;
-
         }
         
         //if(saturation[i]<=sqrt(resources))
@@ -298,4 +298,10 @@ void Profile::flip(Graph* g, Node* v){
     allocation[v->id] = uint_dist(rng)%resources;
     updateRadius(g);
     updateSaturation(g);
+}
+
+int Profile::sampleUnsatisfiedPlayer(){
+    if(unsatisfiedPlayers.size()==0) return -1;// throw Exception("unsatisfiedPlayer size is 0");
+    int i = rand()%unsatisfiedPlayers.size();
+    return unsatisfiedPlayers[i];
 }
