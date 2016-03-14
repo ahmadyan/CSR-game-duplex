@@ -31,10 +31,14 @@ Search::~Search(){
 
 void Search::run(){
     int max = -1;
+    double flipping_factor = 0.1;
+    int error_probability = 5; // %100
     int total_iteration = 10000;
-    int warmupPhase=total_iteration/20;
+    int numberOfFlips = 0;
+    int warmupPhase = playerSize; //total_iteration/20;
+
     for (int i = 0; i < total_iteration; i++){
-        buffersize = 20 + log(i);
+        buffersize = 10;//+(int)sqrt(i);
         Profile* p;
         if(i<warmupPhase){
             p = new Profile(playerSize, resourceSize);
@@ -42,9 +46,15 @@ void Search::run(){
         }else{
             Profile* q = sample();
             p = new Profile(q);
-            for(int j=0;j<1+0.1*total_iteration/i; j++){
+            //flip all of the unsatisfied nodes
+            //p->flip(g, q->getUnsatisfiedPlayers());
+            numberOfFlips = 1+rand()%(q->getUnsatisfiedPlayers().size()-1);
+            //for(int j=0;j<1+flipping_factor*total_iteration/i; j++){
+            for(int j=0;j<numberOfFlips; j++){
+               // cout << j << endl ;
+
                 //p->generateRandomProfile();
-                if(rand()%100 < 5){
+                if(rand()%100 < error_probability){
                     //let the algorithm intentionally make mistakes
                     p->flip(g, g->nodes[rand()%playerSize]);
                 }else{
@@ -52,6 +62,7 @@ void Search::run(){
                     p->flip(g, g->nodes[q->sampleUnsatisfiedPlayer()]);
                 }
             }
+            p->update(g);
         }
 
         //int c0 = p->computeCost(g->nodes[g->nodes.size() - 1]);
@@ -62,7 +73,7 @@ void Search::run(){
         if (o>max) max = o ;
         db.push_back(p);
         push(p);
-        cout << i << ", " << s << ", " << o<< endl ;
+        cout << i << ", " << s << ", " << o << " " << numberOfFlips << endl ;
         //p->flip(g, g->nodes[i%playerSize]);
         //p->updateRadius(g);
         //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
@@ -78,8 +89,6 @@ void Search::run(){
         }
     }
     cout << "Maximum Objective= " << max << endl;
-    
-
 }
 
 void Search::push(Profile* new_elem){
@@ -100,7 +109,16 @@ Profile* Search::get(int i){
 }
 
 Profile* Search::sample(){
+    //Uniformly samples the priority queue
     return buffer[rand()%buffer.size()];
+    
+    //Use weighted sampling for priority queue
+    //this will actually increases the number of iterations and slows for about 20%
+    std::sort(buffer.begin(), buffer.end());
+    for(int i=buffer.size()-1; i>=0; i--){
+        if(rand()%10==0) return buffer[i];
+    }
+    return buffer[0];
 }
 
 int Search::getStat(){

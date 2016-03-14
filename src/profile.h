@@ -35,12 +35,13 @@ public:
 	int updateRadius(Node* v);
 	int objective(Node* v);
 	int objectiveSum(Graph* g);
-    
     int updateSaturation(Graph* g);
     int updateSaturation(Node* v);
-    
     void flip(Graph* g, Node* v);
+    void flip(Graph* g, std::vector<int> unsat);
     int sampleUnsatisfiedPlayer();
+    std::vector<int> getUnsatisfiedPlayers();
+    void update(Graph* g);
 };
 
 

@@ -16,8 +16,7 @@ using namespace  boost::accumulators;
 int main(int argc, const char * argv[]) {
     accumulator_set<double, stats<tag::variance> > acc;
     accumulator_set<double, stats<tag::variance> > acc2;
-    int runs=1;
-
+    int runs=10;
 	int playerSize = 100;
 	int graphConnectivityFactor = 3 ;
 	int resourceSize = 10;

@@ -296,12 +296,28 @@ int Profile::computeCost(Node* v){
 void Profile::flip(Graph* g, Node* v){
     std::uniform_int_distribution<uint32_t> uint_dist;
     allocation[v->id] = uint_dist(rng)%resources;
-    updateRadius(g);
-    updateSaturation(g);
+    //update(g);
+}
+
+void Profile::flip(Graph* g, std::vector<int> unsat){
+    std::uniform_int_distribution<uint32_t> uint_dist;
+    for(int i=0;i<unsat.size();i++){
+        allocation[unsat[i]] = uint_dist(rng)%resources;
+    }
+    //update(g);
 }
 
 int Profile::sampleUnsatisfiedPlayer(){
     if(unsatisfiedPlayers.size()==0) return -1;// throw Exception("unsatisfiedPlayer size is 0");
     int i = rand()%unsatisfiedPlayers.size();
     return unsatisfiedPlayers[i];
+}
+
+std::vector<int> Profile::getUnsatisfiedPlayers(){
+    return unsatisfiedPlayers;
+}
+
+void Profile::update(Graph* g){
+    updateRadius(g);
+    updateSaturation(g);
 }

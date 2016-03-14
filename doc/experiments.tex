@@ -1,0 +1,26 @@
+\section{Experimental Results and Discussions}\label{sec:results}
+We demonstrate the effectiveness and scalability of random tree search using simulation.
+We implemented the random tree search algorithm in C++\footnote{Our tools and data are open-source. Our repository can be accessed at \url{github.com/ahmadyan/Capacitated-Selfish-Replication-Game}} and ran our simulation on a Macbook pro laptop equipped with Core-i7 processor and 16GB of memory.
+
+For case-studies, we use a randomly generated Erdos-Renyi graph $G(n,p)$, where $n$ is the number of players and $p$ is the probability of existence of an edge between two player. We ensured that the graph is connected. The CSR game is for $m$ number of resources in the graph $G$. We executed the random tree search algorithm to find the optimal allocation. The random tree would terminate when the cost function reaches it's maximum at $n\times m$. For each entry point, we repeat the experiments 100 times and reported the mean number of iterations and execition time. To ensure correctness, we checked the number of unsaturated neighborhoods in the graph $G$ to be zero at termination.
+
+Table \ref{tab:result1} shows the result of the random tree search algorithm for different games.
+Our algorithm quickly found the equilibrium point in all of our experiments.
+
+\begin{table}[]
+\centering
+\caption{Random tree search profile for different random graphs}
+\label{tab:result1}
+\begin{tabular}{lllll}
+n   & p    & m  & iterations & time (s) \\
+100 & 0.05 & 5  & 1453       & x        \\
+100 & 0.05 & 20 & 6028       & x        \\
+20  & 0.05 & 3  & 560        & x        \\
+20  & 0.5  & 10 & 1045       & x
+\end{tabular}
+\end{table}
+
+
+% two types of results:
+% 1. Showing algorithm w.r.t. Number of iterations--> should be linear
+% 2. Algorithm w.r.t. its runtime --> O(n^2)
