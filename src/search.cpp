@@ -48,11 +48,11 @@ void Search::run(){
             p = new Profile(q);
             //flip all of the unsatisfied nodes
             //p->flip(g, q->getUnsatisfiedPlayers());
-            numberOfFlips = 1+rand()%(q->getUnsatisfiedPlayers().size()-1);
+            int denom = q->getUnsatisfiedPlayers().size()-1;
+            denom = denom==0?1:denom;
+            numberOfFlips = 1+rand()%(denom);
             //for(int j=0;j<1+flipping_factor*total_iteration/i; j++){
             for(int j=0;j<numberOfFlips; j++){
-               // cout << j << endl ;
-
                 //p->generateRandomProfile();
                 if(rand()%100 < error_probability){
                     //let the algorithm intentionally make mistakes
@@ -64,29 +64,28 @@ void Search::run(){
             }
             p->update(g);
         }
-
-        //int c0 = p->computeCost(g->nodes[g->nodes.size() - 1]);
         p->updateRadius(g);
         int s = p->updateSaturation(g);
         int o = p->objectiveSum(g);
-
         if (o>max) max = o ;
         db.push_back(p);
         push(p);
-        cout << i << ", " << s << ", " << o << " " << numberOfFlips << endl ;
+        //cout << i << ", " << s << ", " << o << " " << numberOfFlips << endl ;
         //p->flip(g, g->nodes[i%playerSize]);
         //p->updateRadius(g);
         //cout << " unsaturated neighbors = " << p->updateSaturation(g) << " " << "cost=" ;
         if(o==playerSize*resourceSize){
+            //cout << p->toString() << endl ;
             cout << " Found equilibrium point after " << i << " iterations" << endl ;
             cout << " Maximum Objective= " << max << endl;
             cout << " Buffer ----------- " << endl ;
 
             //for(int i=0;i<buffersize;i++)
             //    cout << get(i)->cost << endl ;
-            iterations=i;
+
             return;
         }
+        iterations=i;
     }
     cout << "Maximum Objective= " << max << endl;
 }
@@ -123,4 +122,16 @@ Profile* Search::sample(){
 
 int Search::getStat(){
     return iterations;
+}
+
+//buggy code,
+//sort does not uses profile's < operator to sort according to cost
+string Search::getOptimalAllocation(){
+    std::sort(buffer.begin(), buffer.end());
+    for(int i=0;i<buffer.size();i++){
+        cout << buffer[i]->toString() << endl ;
+
+    }
+    auto best = buffer[0];
+    return best->toString();
 }

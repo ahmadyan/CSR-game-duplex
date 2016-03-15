@@ -19,7 +19,6 @@ class Search{
     //vector<int> buffer;
     priority_queue<Profile*, vector<Profile*>, profileGreaterComparator > pq;
     vector<Profile*> buffer;
-    
     vector<Profile*> db;
 public:
     
@@ -30,4 +29,5 @@ public:
     Profile* sample();
     Profile* get(int);
     int getStat();
+    string getOptimalAllocation();
 };

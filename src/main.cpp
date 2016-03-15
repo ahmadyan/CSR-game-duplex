@@ -20,12 +20,16 @@ int main(int argc, const char * argv[]) {
 	int playerSize = 100;
 	int graphConnectivityFactor = 3 ;
 	int resourceSize = 10;
+    double edgeProbability = 0.19;
     std::chrono::milliseconds duration;
     duration.zero();
     for(int i=0;i<runs;i++){
+        double completionPercent = (100.0*i)/runs;
+        cout << " Iteration " << i <<  " ," << completionPercent << "% completed." << endl ;
         Graph* g = new Graph();
         //g->generateRandomGraph(playerSize, graphConnectivityFactor);
-        g->generateErdosRenyiRandomGraph(playerSize, 0.05);
+        g->generateErdosRenyiRandomGraph(playerSize, edgeProbability);
+        //cout << g->toString() << endl ;
         Search* search = new Search(playerSize, resourceSize, g);
         auto start = std::chrono::system_clock::now();
         search->run();

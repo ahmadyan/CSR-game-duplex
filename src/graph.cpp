@@ -17,10 +17,8 @@ Graph::~Graph(){
     }
 }
 
-//very simple random graph generator
 //incrementally constructs the graph, vertex by vertex
-//randomly connects the new vertex to at least p other vertices (no guarantees for the first p-vertices)
-//todo: replace this with Erdos random graphs
+//randomly connects  vertex to at least p other vertices
 void Graph::generateRandomGraph(int size, int p){
     std::mt19937 rng;
     std::array<int, 624> seed_data;
@@ -32,14 +30,14 @@ void Graph::generateRandomGraph(int size, int p){
     
     for(int i=0;i<size;i++){
         Node* v = new Node(i);
-        int j=0;
-        while(j<std::min(i,p)){
-            auto u = uint_dist(rng)%i;
-            if(v->addEdge(nodes[u])){
-                j++;
-            }
-        }
         nodes.push_back(v);
+    }
+    for(int i=0;i<size;i++){
+        if(i>0) nodes[i]->addEdge(nodes[i-1]);  //to ensure connectedness
+        for(int j=0;j<p-1;j++){
+            auto u = uint_dist(rng)%size;
+            nodes[i]->addEdge(nodes[u]);
+        }
     }
 }
 

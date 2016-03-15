@@ -76,23 +76,39 @@ void Profile::generateRandomProfile(){
 
 std::string Profile::toString(){
     std::stringstream ss;
+    ss << "Cost=" << cost << std::endl ;
+    ss << "Allocation= ";
     for(int i=0;i<size;i++){
         ss << allocation[i] << ", " ;
+    }
+    ss << std::endl;
+    ss << "Radius= ";
+    for(int i=0;i<size;i++){
+        ss << radius[i] << ", " ;
+    }
+    ss << std::endl;
+    ss << "Saturation= ";
+    for(int i=0;i<size;i++){
+        ss << saturation[i] << ", " ;
+    }
+    ss << std::endl;
+    ss << "Unsatisfied Players= ";
+    for(int i=0;i<unsatisfiedPlayers.size();i++){
+        ss << unsatisfiedPlayers[i] << ", " ;
     }
     ss << std::endl;
     return ss.str();
 }
 
 int Profile::updateSaturation(Graph* g){
+    unsatisfiedPlayers.clear();
     auto unsaturatedNeighbors=0;
     for (auto i = 0; i < size; i++){
         saturation[i] = updateSaturation(g->nodes[i]);
         if(saturation[i]!=resources){
             unsaturatedNeighbors++;
             unsatisfiedPlayers.push_back(i);
-         //   std::cout << "* " << saturation[i] << " " << resources << std::endl ;
         }
-        
         //if(saturation[i]<=sqrt(resources))
         //    unsaturatedNeighbors++;
     }
