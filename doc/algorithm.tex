@@ -2,6 +2,7 @@
 We use random tree search algorithm to find the optimum resource allocation in the CSR game.
 Each node in the random tree is $n$-dimensional vector denoting an allocation instance.
 The search algorithm adds new nodes to the tree by sampling new allocations and optimizing the cost of each allocation iteratively.
+
 The search algorithm starts by randomly generating a few allocation as seeds and stores them in a buffer.
 This buffer maintains the highest scoring allocations that we have found so far.
 Next, at each iteration, the search algorithm picks an allocation from the buffer.
@@ -44,7 +45,7 @@ We emprically observed setting the buffer size at a fixed size 10 yields the opt
 
 \paragraph{Updating allocations:} At every iteration, we have to make a choice of which player's resource to update in the allocation.
 The random tree algorithm updates the resources of a few of unsatisfied players in the allocation.
-If we update a very few players, say 1 or 2, the algorithm converges slowly. On the other hand, if we update too many players, specially at the begining, the algorithm is unable to efficiently optimize each allocation. We updates an expected half of the players at each iteration. Furthermore, with a low probability ($5\%$), we will update a player at random (that might even be a satisfied player). These type of intentionally adding error, althought seems counter-intuitive, is shown to be very effective and practical in randomized search algorithms. 
+If we update a very few players, say 1 or 2, the algorithm converges slowly. On the other hand, if we update too many players, specially at the begining, the algorithm is unable to efficiently optimize each allocation. We updates an expected half of the players at each iteration. Furthermore, with a low probability ($5\%$), we will update a player at random (that might even be a satisfied player). These type of intentionally adding error, althought seems counter-intuitive, is shown to be very effective and practical in randomized search algorithms.
 
 %The random tree search algorithm work as follows.
 %Initially, we generate a few random allocation as seends and compute the score of each allocation. Then we push these initial seeds into the fixed-size priority queue sorted by each allocation's score. The froniter set is the set of the $n$ highest scoring allocation that we found so far.

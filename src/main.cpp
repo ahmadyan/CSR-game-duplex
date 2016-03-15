@@ -18,8 +18,8 @@ int main(int argc, const char * argv[]) {
     accumulator_set<double, stats<tag::variance> > acc2;
     int runs=10;
 	int playerSize = 100;
-	int graphConnectivityFactor = 3 ;
-	int resourceSize = 10;
+	int resourceSize = 19;
+    int graphConnectivityFactor = resourceSize ;
     double edgeProbability = 0.19;
     std::chrono::milliseconds duration;
     duration.zero();
@@ -27,8 +27,8 @@ int main(int argc, const char * argv[]) {
         double completionPercent = (100.0*i)/runs;
         cout << " Iteration " << i <<  " ," << completionPercent << "% completed." << endl ;
         Graph* g = new Graph();
-        //g->generateRandomGraph(playerSize, graphConnectivityFactor);
-        g->generateErdosRenyiRandomGraph(playerSize, edgeProbability);
+        g->generateRandomGraph(playerSize, graphConnectivityFactor);
+        //g->generateErdosRenyiRandomGraph(playerSize, edgeProbability);
         //cout << g->toString() << endl ;
         Search* search = new Search(playerSize, resourceSize, g);
         auto start = std::chrono::system_clock::now();
